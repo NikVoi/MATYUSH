@@ -1,0 +1,23 @@
+.wrapper {
+	@apply relative w-full overflow-hidden py-12;
+}
+
+.line {
+	@apply relative -rotate-[20deg] flex items-center w-full h-[60px] whitespace-nowrap bg-[#fa216a] top-12;
+}
+
+.reverseWrapper {
+	@apply relative w-full flex items-center  h-[60px] bg-[#fa216a] overflow-hidden rotate-[5deg];
+}
+
+.marquee {
+	@apply flex whitespace-nowrap animate-marquee;
+}
+
+.reverse {
+	@apply animate-marquee-reverse;
+}
+
+.text {
+	@apply text-white text-4xl font-bold uppercase whitespace-nowrap;
+}

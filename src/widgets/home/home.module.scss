@@ -1,0 +1,13 @@
+.Home {
+	@apply relative flex justify-center items-center h-screen;
+
+	h1 {
+		@apply flex justify-center  text-[300px]  text-[#fa216a] relative z-10 max-md:text-[100px];
+
+		font-family: var(--font-bebas), sans-serif;
+	}
+}
+
+.pic {
+	@apply absolute top-0 left-0 w-full h-full object-cover;
+}
