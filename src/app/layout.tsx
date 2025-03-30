@@ -1,8 +1,8 @@
-import '@/shared/styles/globals.scss'
 import Footer from '@/widgets/footer/footer'
 import Header from '@/widgets/header/header'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Montserrat } from 'next/font/google'
+import './globals.css'
 
 const montserrat = Montserrat({
 	subsets: ['latin'],

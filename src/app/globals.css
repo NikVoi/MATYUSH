@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+:root {
+	--white: #ffffff;
+	--black: #1a1816;
+	--text: #0a0a0a;
+	--bg: #2c2e2f;
+	--main: #fa216a;
+	--font-montserrat: 'Montserrat', sans-serif;
+	--font-bebas: 'Bebas Neue', sans-serif;
+}
+
+body {
+	background: var(--white);
+	color: var(--text);
+	font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-bebas {
+	font-family: var(--font-bebas), sans-serif;
+}
+
+.text-text {
+	color: var(--color-text);
+}
+
+.bg-whited {
+	background: var(--white);
+}
+
+.bg-bg {
+	background-color: var(--bg);
+}
+
+.bg-black {
+	background-color: var(--black);
+}
+
+.text-main {
+	color: var(--main);
+}
+
+.bg-main {
+	background-color: var(--main);
+}
+
+.font-montserrat {
+	font-family: var(--font-montserrat);
+}
+
+.font-bebas {
+	font-family: var(--font-bebas);
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes marquee-reverse {
+	0% {
+		transform: translateX(-50%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.animate-marquee {
+	display: flex;
+	animation: marquee 10s linear infinite;
+}
+
+.animate-marquee-reverse {
+	display: flex;
+	animation: marquee-reverse 10s linear infinite;
+}

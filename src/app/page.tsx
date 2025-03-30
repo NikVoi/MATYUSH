@@ -1,9 +1,9 @@
-import Review from '@/components/Review/Review'
-import Title from '@/shared/ui/title/title'
+import Title from '@/shared/ui/title'
 import About from '@/widgets/about/about'
 import Bands from '@/widgets/bands/bands'
 import Categories from '@/widgets/categories/categories'
 import Home from '@/widgets/home/home'
+import Review from '@/widgets/Review/Review'
 import { EmblaOptionsType } from 'embla-carousel'
 
 export default function HomePage() {
@@ -12,7 +12,7 @@ export default function HomePage() {
 	const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 	return (
-		<main className='w-full relative '>
+		<main className='w-full relative'>
 			<Home />
 
 			<Bands />

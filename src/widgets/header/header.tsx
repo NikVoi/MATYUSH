@@ -1,23 +1,16 @@
 'use client'
 
+import { MATYUSH } from '@/shared/config/constant'
 import { Button } from '@/shared/ui/button'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
-import styles from './header.module.scss'
+import BurgerButton from './burgerButton'
+import Nav from './nav'
 
 const headerVariants = {
 	hidden: { opacity: 0, y: -20 },
 	visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
-
-const navItemVariants = {
-	hidden: { opacity: 0, y: 10 },
-	visible: (i: number) => ({
-		opacity: 1,
-		y: 0,
-		transition: { delay: 0.2 * i, duration: 0.5, ease: 'easeOut' },
-	}),
 }
 
 const Header = () => {
@@ -25,67 +18,36 @@ const Header = () => {
 
 	return (
 		<motion.header
-			className={styles.header}
+			className='fixed z-50 w-full bg-whited py-4 shadow-md'
 			role='banner'
 			variants={headerVariants}
 			initial='hidden'
 			animate='visible'
 		>
-			<div className={styles.wrapper}>
-				<div className={styles.logo}>
-					<Link href='/' aria-label='Go to Home'>
-						MATYUSH
-					</Link>
-				</div>
-
-				{/* Бургер-меню */}
-				<div
-					className={`${styles.burger} ${menuOpen ? styles.open : ''}`}
-					onClick={() => setMenuOpen(!menuOpen)}
+			<div className='flex justify-between items-center container mx-auto max-md:px-4 '>
+				<Link
+					href='/'
+					className='text-4xl font-bold max-md:text-3xl font-bebas'
 				>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
+					{MATYUSH}
+				</Link>
 
-				{/* Навигация */}
-				<motion.nav
-					className={`${styles.nav} ${menuOpen ? styles.open : ''}`}
-					role='navigation'
-					aria-label='Main navigation'
-				>
-					<ul>
-						{['Work', 'About', 'Page'].map((item, index) => (
-							<motion.li
-								key={item}
-								custom={index}
-								variants={navItemVariants}
-								initial='hidden'
-								animate='visible'
-							>
-								<Link
-									href={`/${item.toLowerCase()}`}
-									className={styles.navItem}
-								>
-									{item}
-								</Link>
-							</motion.li>
-						))}
-					</ul>
-				</motion.nav>
+				<Nav menuOpen={menuOpen} />
 
 				<motion.div
-					variants={navItemVariants}
-					custom={3}
-					initial='hidden'
-					animate='visible'
+					className='hidden md:block'
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1, transition: { delay: 0.3 } }}
 				>
 					<Button asChild variant='ghost'>
-						<Link href='/contact' className={styles.link}>
-							Let’s Contact
-						</Link>
+						<Link href='/contact'>Let’s Contact</Link>
 					</Button>
 				</motion.div>
+
+				<BurgerButton
+					menuOpen={menuOpen}
+					toggleMenu={() => setMenuOpen(!menuOpen)}
+				/>
 			</div>
 		</motion.header>
 	)
