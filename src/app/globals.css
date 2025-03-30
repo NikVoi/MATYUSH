@@ -10,6 +10,10 @@
 	--font-bebas: 'Bebas Neue', sans-serif;
 }
 
+* {
+	scroll-behavior: smooth;
+}
+
 body {
 	background: var(--white);
 	color: var(--text);

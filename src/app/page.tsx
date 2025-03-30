@@ -16,14 +16,14 @@ export default function HomePage() {
 			<Home />
 
 			<Bands />
-			<Title title='Feature collections' />
+			<Title title='Feature collections' id='work' />
 			<Categories />
 			<Bands />
 
-			<Title title='Client review' />
+			<Title title='Client review' id='review' />
 			<Review slides={SLIDES} options={OPTIONS} />
 
-			<Title title='About us' />
+			<Title title='About us' id='about' />
 			<About />
 		</main>
 	)
