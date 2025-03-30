@@ -27,7 +27,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${montserrat.variable} ${bebasNeue.variable}`}>
+			<body
+				className={`${montserrat.variable} ${bebasNeue.variable} flex flex-col justify-between h-screen`}
+			>
 				<Header />
 				{children}
 				<Footer />

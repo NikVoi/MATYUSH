@@ -1,18 +1,25 @@
 'use client'
 
-import photo from '@/assets/collections/first.png'
 import { Button } from '@/shared/ui/button'
 import Container from '@/shared/ui/container'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+import bags from '@/assets/collections/bags.png'
+import barbie from '@/assets/collections/barbi.png'
+import dark from '@/assets/collections/dark.png'
+import first from '@/assets/collections/first.png'
+import lime from '@/assets/collections/lime.png'
+import soon from '@/assets/collections/soon.png'
+import { useRouter } from 'next/navigation'
+
 const categories = [
-	{ id: 1, title: 'Footwear', subTitle: 'lorem for a month' },
-	{ id: 2, title: 'Jacket', subTitle: 'lorem for a month' },
-	{ id: 3, title: 'Accessories', subTitle: 'lorem for a month' },
-	{ id: 4, title: 'Headwear', subTitle: 'lorem for a month' },
-	{ id: 5, title: 'Bags', subTitle: 'lorem for a month' },
-	{ id: 6, title: 'Bottoms', subTitle: 'lorem for a month' },
+	{ id: 1, title: 'bags', subTitle: 'lorem for a month', img: bags },
+	{ id: 2, title: 'Hoodie', subTitle: 'lorem for a month', img: first },
+	{ id: 3, title: 'Pajamas', subTitle: 'lorem for a month', img: dark },
+	{ id: 4, title: 'Barbie', subTitle: 'lorem for a month', img: barbie },
+	{ id: 5, title: 'Lime', subTitle: 'lorem for a month', img: lime },
+	{ id: 6, title: 'Long', subTitle: 'lorem for a month', img: soon },
 ]
 
 const fadeIn = {
@@ -30,6 +37,8 @@ const slideUp = (delay = 0) => ({
 })
 
 const Categories = () => {
+	const router = useRouter()
+
 	return (
 		<motion.section
 			className={`w-full py-12 max-md:py-0 `}
@@ -58,10 +67,11 @@ const Categories = () => {
 							key={category.id}
 							className={`${containerClass} ${rowSpanClass} ${colStartClass}`}
 							variants={slideUp(category.id * 0.15)}
+							onClick={() => router.push(`/category/${category.id}`)}
 						>
 							<div className=''>
 								<Image
-									src={photo}
+									src={category.img}
 									alt={category.title}
 									className={`absolute top-0 left-0 w-full h-full object-cover grayscale transition -z-10 group-hover:grayscale-0 group-hover:scale-110 group-hover:duration-300 `}
 								/>
