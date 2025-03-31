@@ -1,6 +1,12 @@
 'use client'
-import Image from 'next/image'
+import DetailsInfo from '@/widgets/details/detailsInfo'
+import DetailsPicture from '@/widgets/details/detailsPicture'
 import { useParams } from 'next/navigation'
+
+import hoodie_1 from '@/assets/details/first.png'
+import hoodie_2 from '@/assets/details/second.png'
+import hoodie_3 from '@/assets/details/third.png'
+import Container from '@/shared/ui/container'
 
 const categories = [
 	{
@@ -41,6 +47,16 @@ const categories = [
 	},
 ]
 
+const array = [hoodie_3, hoodie_2, hoodie_1]
+
+const categoryDetails = {
+	title: 'Hoodie',
+	description: 'Warm and cozy hoodie',
+	color: 'Pink',
+	materials: 'Cotton, Polyester',
+	sizes: ['S', 'M', 'L', 'XL'],
+}
+
 const CategoryPage = () => {
 	const params = useParams()
 
@@ -52,11 +68,14 @@ const CategoryPage = () => {
 	}
 
 	return (
-		<div className='container mx-auto p-4 text-center'>
-			<h1 className='text-3xl font-bold mb-4'>{category.title}</h1>
+		<Container className='flex justify-between my-40'>
+			<DetailsPicture images={array} />
+			<DetailsInfo details={categoryDetails} />
+
+			{/* <h1 className='text-3xl font-bold mb-4'>{category.title}</h1>
 			<Image src={category.img} alt={category.title} width={400} height={400} />
-			<p className='text-lg mt-2'>{category.description}</p>
-		</div>
+			<p className='text-lg mt-2'>{category.description}</p> */}
+		</Container>
 	)
 }
 

@@ -1,0 +1,99 @@
+{
+	"pages": {
+		"home": {
+			"title": "Welcome to Our Store",
+			"description": "Find the best fashion items here",
+			"bannerImage": "https://example.com/banner.jpg",
+			"sections": [
+				{
+					"id": "feature-collections",
+					"title": "Feature Collections",
+					"type": "carousel",
+					"items": ["product-1", "product-2"]
+				},
+				{
+					"id": "client-reviews",
+					"title": "Client Reviews",
+					"type": "reviews"
+				}
+			]
+		},
+		"contacts": {
+			"title": "Contact Us",
+			"description": "Get in touch with us via the form below.",
+			"form": {
+				"fields": ["name", "email", "message"],
+				"submitText": "Send Message"
+			},
+			"contactInfo": {
+				"email": "contact@matyush.com",
+				"phone": "+1 (234) 567-89-00",
+				"address": "New York, USA"
+			}
+		}
+	},
+	"products": {
+		"product-1": {
+			"title": "Classic White Shirt",
+			"description": "Premium cotton shirt.",
+			"price": 49.99,
+			"currency": "USD",
+			"images": [
+				"https://example.com/shirt1.jpg",
+				"https://example.com/shirt2.jpg"
+			],
+			"color": "White",
+			"materials": "100% Cotton",
+			"sizes": ["S", "M", "L", "XL"],
+			"category": "shirts"
+		}
+	},
+	"categories": {
+		"shirts": {
+			"title": "Shirts",
+			"description": "Explore our collection of high-quality shirts.",
+			"image": "https://example.com/shirts-category.jpg",
+			"products": ["product-1"]
+		}
+	},
+	"settings": {
+		"header": {
+			"logo": "MATYUSH",
+			"navLinks": [
+				{ "name": "Work", "url": "#work" },
+				{ "name": "Review", "url": "#review" },
+				{ "name": "About", "url": "#about" }
+			],
+			"contactButton": {
+				"text": "Let’s Contact",
+				"url": "/contact"
+			}
+		},
+		"footer": {
+			"columns": [
+				{
+					"title": "Company",
+					"links": ["About us", "Size Guide", "Shipping & Returns"]
+				},
+				{
+					"title": "Catalog",
+					"links": ["Shirts", "Bottoms", "Caps"]
+				},
+				{
+					"title": "Terms & Policies",
+					"links": ["Terms of Service", "Privacy Policy", "Cookie Policy"]
+				}
+			],
+			"contactInfo": [
+				{ "type": "email", "value": "contact@matyush.com" },
+				{ "type": "phone", "value": "+1 (234) 567-89-00" },
+				{ "type": "address", "value": "New York, USA" }
+			],
+			"socialLinks": [
+				{ "platform": "Telegram", "url": "https://t.me/matyush" },
+				{ "platform": "Instagram", "url": "https://instagram.com/matyush" },
+				{ "platform": "Pinterest", "url": "https://pinterest.com/matyush" }
+			]
+		}
+	}
+}

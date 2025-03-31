@@ -77,16 +77,13 @@ const Categories = () => {
 								/>
 							</div>
 							<div className=''>
-								<h3 className='opacity-100 duration-500 text-4xl font-bebas'>
+								<h3 className='opacity-100 duration-500 text-4xl font-bebas '>
 									{category.title}
 								</h3>
 								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 '>
 									{category.subTitle}
 								</h4>
-								<Button
-									variant='secondary'
-									className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold'
-								>
+								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold'>
 									Discover
 								</Button>
 							</div>

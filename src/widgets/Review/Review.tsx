@@ -63,7 +63,7 @@ const Review: FC<PropType> = ({ slides, options }) => {
 				})
 			}
 
-			const scaleFactor = 0.25 // Можно подбирать под нужный эффект
+			const scaleFactor = 0.25
 			const scale = numberWithinRange(
 				1 - Math.pow(Math.abs(diffToTarget), 1.2) * scaleFactor,
 				0.8,
@@ -122,20 +122,20 @@ const Review: FC<PropType> = ({ slides, options }) => {
 						))}
 					</div>
 				</div>
-				<div className='flex justify-center'>
+				<div className='flex justify-center mt-5 '>
 					<Button
 						onClick={onPrevButtonClick}
 						disabled={prevBtnDisabled}
-						className='bg-white text-black shadow-none hover:bg-white'
+						className='bg-white text-black shadow-none hover:bg-white p-0 mr-8'
 					>
-						<FaArrowLeftLong className='size-16' />
+						<FaArrowLeftLong />
 					</Button>
 					<Button
-						className='bg-white text-black shadow-none hover:bg-white'
+						className='bg-white text-black shadow-none hover:bg-white p-0'
 						onClick={onNextButtonClick}
 						disabled={nextBtnDisabled}
 					>
-						<FaArrowRightLong className='size-16' />
+						<FaArrowRightLong className='' />
 					</Button>
 				</div>
 			</div>
