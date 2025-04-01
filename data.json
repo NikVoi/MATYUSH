@@ -1,99 +1,231 @@
 {
-	"pages": {
-		"home": {
-			"title": "Welcome to Our Store",
-			"description": "Find the best fashion items here",
-			"bannerImage": "https://example.com/banner.jpg",
-			"sections": [
-				{
-					"id": "feature-collections",
-					"title": "Feature Collections",
-					"type": "carousel",
-					"items": ["product-1", "product-2"]
-				},
-				{
-					"id": "client-reviews",
-					"title": "Client Reviews",
-					"type": "reviews"
-				}
-			]
-		},
-		"contacts": {
-			"title": "Contact Us",
-			"description": "Get in touch with us via the form below.",
-			"form": {
-				"fields": ["name", "email", "message"],
-				"submitText": "Send Message"
-			},
-			"contactInfo": {
-				"email": "contact@matyush.com",
-				"phone": "+1 (234) 567-89-00",
-				"address": "New York, USA"
-			}
-		}
-	},
-	"products": {
-		"product-1": {
-			"title": "Classic White Shirt",
-			"description": "Premium cotton shirt.",
-			"price": 49.99,
-			"currency": "USD",
+	"data": [
+		{
+			"id": 9,
+			"documentId": "vuhwdmfns0wt5zf4kpip197s",
+			"title": "hoodie woomen",
+			"description": "Тёплое и стильное худи – комфорт на каждый день! 🖤 Мягкий хлопок с флисом, удобный капюшон, просторный карман-кенгуру и свободный крой. Подходит для прогулок, учёбы и отдыха. 🔥",
+			"brand": "matyush",
+			"attributes": { "color": "Pink", "size": ["41", "42", "43"] },
+			"createdAt": "2025-03-31T15:34:10.109Z",
+			"updatedAt": "2025-03-31T15:54:31.116Z",
+			"publishedAt": "2025-03-31T15:54:31.126Z",
+			"slag": "hoodie-girl",
 			"images": [
-				"https://example.com/shirt1.jpg",
-				"https://example.com/shirt2.jpg"
-			],
-			"color": "White",
-			"materials": "100% Cotton",
-			"sizes": ["S", "M", "L", "XL"],
-			"category": "shirts"
-		}
-	},
-	"categories": {
-		"shirts": {
-			"title": "Shirts",
-			"description": "Explore our collection of high-quality shirts.",
-			"image": "https://example.com/shirts-category.jpg",
-			"products": ["product-1"]
-		}
-	},
-	"settings": {
-		"header": {
-			"logo": "MATYUSH",
-			"navLinks": [
-				{ "name": "Work", "url": "#work" },
-				{ "name": "Review", "url": "#review" },
-				{ "name": "About", "url": "#about" }
-			],
-			"contactButton": {
-				"text": "Let’s Contact",
-				"url": "/contact"
-			}
-		},
-		"footer": {
-			"columns": [
 				{
-					"title": "Company",
-					"links": ["About us", "Size Guide", "Shipping & Returns"]
+					"id": 23,
+					"documentId": "bhos4lkc0l1tp4nmqvgci0gg",
+					"name": "photo_2025-03-27_20-55-15.jpg",
+					"alternativeText": null,
+					"caption": null,
+					"width": 853,
+					"height": 1280,
+					"formats": {
+						"thumbnail": {
+							"name": "thumbnail_photo_2025-03-27_20-55-15.jpg",
+							"hash": "thumbnail_photo_2025_03_27_20_55_15_6e4dae9de3",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 104,
+							"height": 156,
+							"size": 2.33,
+							"sizeInBytes": 2327,
+							"url": "/uploads/thumbnail_photo_2025_03_27_20_55_15_6e4dae9de3.jpg"
+						},
+						"large": {
+							"name": "large_photo_2025-03-27_20-55-15.jpg",
+							"hash": "large_photo_2025_03_27_20_55_15_6e4dae9de3",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 666,
+							"height": 1000,
+							"size": 40.21,
+							"sizeInBytes": 40213,
+							"url": "/uploads/large_photo_2025_03_27_20_55_15_6e4dae9de3.jpg"
+						},
+						"medium": {
+							"name": "medium_photo_2025-03-27_20-55-15.jpg",
+							"hash": "medium_photo_2025_03_27_20_55_15_6e4dae9de3",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 500,
+							"height": 750,
+							"size": 23.8,
+							"sizeInBytes": 23800,
+							"url": "/uploads/medium_photo_2025_03_27_20_55_15_6e4dae9de3.jpg"
+						},
+						"small": {
+							"name": "small_photo_2025-03-27_20-55-15.jpg",
+							"hash": "small_photo_2025_03_27_20_55_15_6e4dae9de3",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 333,
+							"height": 500,
+							"size": 12.38,
+							"sizeInBytes": 12380,
+							"url": "/uploads/small_photo_2025_03_27_20_55_15_6e4dae9de3.jpg"
+						}
+					},
+					"hash": "photo_2025_03_27_20_55_15_6e4dae9de3",
+					"ext": ".jpg",
+					"mime": "image/jpeg",
+					"size": 67.03,
+					"url": "/uploads/photo_2025_03_27_20_55_15_6e4dae9de3.jpg",
+					"previewUrl": null,
+					"provider": "local",
+					"provider_metadata": null,
+					"createdAt": "2025-03-31T15:33:27.128Z",
+					"updatedAt": "2025-03-31T15:33:27.128Z",
+					"publishedAt": "2025-03-31T15:33:27.128Z"
 				},
 				{
-					"title": "Catalog",
-					"links": ["Shirts", "Bottoms", "Caps"]
+					"id": 24,
+					"documentId": "neqv9nfm6z5s8itg2tsdf68f",
+					"name": "photo_2025-03-27_20-54-27.jpg",
+					"alternativeText": null,
+					"caption": null,
+					"width": 1280,
+					"height": 853,
+					"formats": {
+						"thumbnail": {
+							"name": "thumbnail_photo_2025-03-27_20-54-27.jpg",
+							"hash": "thumbnail_photo_2025_03_27_20_54_27_7a63a86ca1",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 234,
+							"height": 156,
+							"size": 4.49,
+							"sizeInBytes": 4491,
+							"url": "/uploads/thumbnail_photo_2025_03_27_20_54_27_7a63a86ca1.jpg"
+						},
+						"large": {
+							"name": "large_photo_2025-03-27_20-54-27.jpg",
+							"hash": "large_photo_2025_03_27_20_54_27_7a63a86ca1",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 1000,
+							"height": 666,
+							"size": 47.86,
+							"sizeInBytes": 47859,
+							"url": "/uploads/large_photo_2025_03_27_20_54_27_7a63a86ca1.jpg"
+						},
+						"small": {
+							"name": "small_photo_2025-03-27_20-54-27.jpg",
+							"hash": "small_photo_2025_03_27_20_54_27_7a63a86ca1",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 500,
+							"height": 333,
+							"size": 13.97,
+							"sizeInBytes": 13969,
+							"url": "/uploads/small_photo_2025_03_27_20_54_27_7a63a86ca1.jpg"
+						},
+						"medium": {
+							"name": "medium_photo_2025-03-27_20-54-27.jpg",
+							"hash": "medium_photo_2025_03_27_20_54_27_7a63a86ca1",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 750,
+							"height": 500,
+							"size": 28.07,
+							"sizeInBytes": 28068,
+							"url": "/uploads/medium_photo_2025_03_27_20_54_27_7a63a86ca1.jpg"
+						}
+					},
+					"hash": "photo_2025_03_27_20_54_27_7a63a86ca1",
+					"ext": ".jpg",
+					"mime": "image/jpeg",
+					"size": 79.92,
+					"url": "/uploads/photo_2025_03_27_20_54_27_7a63a86ca1.jpg",
+					"previewUrl": null,
+					"provider": "local",
+					"provider_metadata": null,
+					"createdAt": "2025-03-31T15:33:27.143Z",
+					"updatedAt": "2025-03-31T15:33:27.143Z",
+					"publishedAt": "2025-03-31T15:33:27.143Z"
 				},
 				{
-					"title": "Terms & Policies",
-					"links": ["Terms of Service", "Privacy Policy", "Cookie Policy"]
+					"id": 25,
+					"documentId": "ifvv60d4la9kx8lqg2g7gkwv",
+					"name": "photo_2025-03-27_20-55-06.jpg",
+					"alternativeText": null,
+					"caption": null,
+					"width": 853,
+					"height": 1280,
+					"formats": {
+						"thumbnail": {
+							"name": "thumbnail_photo_2025-03-27_20-55-06.jpg",
+							"hash": "thumbnail_photo_2025_03_27_20_55_06_7084aced07",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 104,
+							"height": 156,
+							"size": 2.46,
+							"sizeInBytes": 2455,
+							"url": "/uploads/thumbnail_photo_2025_03_27_20_55_06_7084aced07.jpg"
+						},
+						"large": {
+							"name": "large_photo_2025-03-27_20-55-06.jpg",
+							"hash": "large_photo_2025_03_27_20_55_06_7084aced07",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 666,
+							"height": 1000,
+							"size": 37.13,
+							"sizeInBytes": 37131,
+							"url": "/uploads/large_photo_2025_03_27_20_55_06_7084aced07.jpg"
+						},
+						"medium": {
+							"name": "medium_photo_2025-03-27_20-55-06.jpg",
+							"hash": "medium_photo_2025_03_27_20_55_06_7084aced07",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 500,
+							"height": 750,
+							"size": 22.78,
+							"sizeInBytes": 22781,
+							"url": "/uploads/medium_photo_2025_03_27_20_55_06_7084aced07.jpg"
+						},
+						"small": {
+							"name": "small_photo_2025-03-27_20-55-06.jpg",
+							"hash": "small_photo_2025_03_27_20_55_06_7084aced07",
+							"ext": ".jpg",
+							"mime": "image/jpeg",
+							"path": null,
+							"width": 333,
+							"height": 500,
+							"size": 12.14,
+							"sizeInBytes": 12139,
+							"url": "/uploads/small_photo_2025_03_27_20_55_06_7084aced07.jpg"
+						}
+					},
+					"hash": "photo_2025_03_27_20_55_06_7084aced07",
+					"ext": ".jpg",
+					"mime": "image/jpeg",
+					"size": 59.74,
+					"url": "/uploads/photo_2025_03_27_20_55_06_7084aced07.jpg",
+					"previewUrl": null,
+					"provider": "local",
+					"provider_metadata": null,
+					"createdAt": "2025-03-31T15:33:27.161Z",
+					"updatedAt": "2025-03-31T15:33:27.161Z",
+					"publishedAt": "2025-03-31T15:33:27.161Z"
 				}
-			],
-			"contactInfo": [
-				{ "type": "email", "value": "contact@matyush.com" },
-				{ "type": "phone", "value": "+1 (234) 567-89-00" },
-				{ "type": "address", "value": "New York, USA" }
-			],
-			"socialLinks": [
-				{ "platform": "Telegram", "url": "https://t.me/matyush" },
-				{ "platform": "Instagram", "url": "https://instagram.com/matyush" },
-				{ "platform": "Pinterest", "url": "https://pinterest.com/matyush" }
 			]
 		}
+	],
+	"meta": {
+		"pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 1 }
 	}
 }

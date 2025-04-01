@@ -6,22 +6,29 @@ interface Props {
 }
 
 const DetailsPicture: FC<Props> = ({ images }) => {
+	console.log(images)
 	return (
-		<section className='grid grid-cols-3 grid-rows-2 w-[48%]'>
+		<section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 w-full lg:w-[48%]'>
 			<Image
+				width={1000}
+				height={250}
 				src={images[0]}
 				alt='pic'
-				className='row-span-2 col-span-3 object-cover h-[800px]'
+				className='col-span-1 lg:col-span-3 object-cover h-[300px] lg:h-[800px]'
 			/>
 			<Image
+				width={1000}
+				height={250}
 				src={images[1]}
 				alt='pic'
-				className='col-start-2 col-end-4 row-start-3 row-end-5 row-span-4 h-[300px] object-cover'
+				className='lg:col-start-1 lg:col-end-2 lg:row-span-2 h-[200px] lg:h-[300px] object-cover'
 			/>
 			<Image
+				width={1000}
+				height={250}
 				src={images[2]}
 				alt='pic'
-				className='col-start-1 object-cover h-[300px]'
+				className='object-cover h-[200px] lg:h-[300px] lg:col-start-2 lg:col-end-4'
 			/>
 		</section>
 	)

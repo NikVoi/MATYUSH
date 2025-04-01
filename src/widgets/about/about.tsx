@@ -8,11 +8,11 @@ import { PiStarFourFill } from 'react-icons/pi'
 
 const aboutText = {
 	heading:
-		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptatibus in amet, vero, inventore, dicta asperiores cumque ipsam quaerat harum illo.',
-	info: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit perspiciatis vitae sint fugit rerum.',
+		'​Компания Matyush специализируется на создании индивидуальной одежды, ориентируясь на точное соответствие размеров и предпочтений клиентов. Это подтверждается публикацией в Instagram, где упоминается, что костюм "Barbie" шьется по индивидуальным меркам для идеальной посадки.',
+	info: 'Владельцем компании является Любовь, которая в своем профиле указывает на увлечение шитьем и садоводством. В целом, Matyush акцентирует внимание на индивидуальном подходе к каждому клиенту, предлагая одежду, созданную с учетом персональных мерок и предпочтений.',
 	items: [
-		{ year: '2022', label: 'company started' },
-		{ year: '2024', label: 'new product launched' },
+		{ year: '2022', label: 'Компания началась' },
+		{ year: '2025', label: 'Выход на рынок' },
 	],
 }
 

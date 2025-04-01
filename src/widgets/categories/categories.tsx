@@ -14,12 +14,48 @@ import soon from '@/assets/collections/soon.png'
 import { useRouter } from 'next/navigation'
 
 const categories = [
-	{ id: 1, title: 'bags', subTitle: 'lorem for a month', img: bags },
-	{ id: 2, title: 'Hoodie', subTitle: 'lorem for a month', img: first },
-	{ id: 3, title: 'Pajamas', subTitle: 'lorem for a month', img: dark },
-	{ id: 4, title: 'Barbie', subTitle: 'lorem for a month', img: barbie },
-	{ id: 5, title: 'Lime', subTitle: 'lorem for a month', img: lime },
-	{ id: 6, title: 'Long', subTitle: 'lorem for a month', img: soon },
+	{
+		id: 1,
+		title: 'bags',
+		subTitle:
+			'Уникальные дизайнерские сумки с эффектом необработанных краев, создающие бунтарский и модный образ',
+		img: bags,
+	},
+	{
+		id: 2,
+		title: 'Hoodie',
+		subTitle:
+			'Объемные худи с минималистичным дизайном, обеспечивающие комфорт и стиль в повседневной носке',
+		img: first,
+	},
+	{
+		id: 3,
+		title: 'Pajamas',
+		subTitle:
+			'Изящные пижамы с открытой спиной и акцентом на женственность и утонченность',
+		img: dark,
+	},
+	{
+		id: 4,
+		title: 'Barbie',
+		subTitle:
+			'Легкий и элегантный комплект в расслабленном стиле, подчеркивающий естественную красоту',
+		img: barbie,
+	},
+	{
+		id: 5,
+		title: 'Lime',
+		subTitle:
+			'Современный худи с фирменным логотипом Matyush на спине, сочетающий комфорт и трендовость',
+		img: lime,
+	},
+	{
+		id: 6,
+		title: 'Long',
+		subTitle:
+			'Длинные худи с кристаллами, добавляющие блеска и оригинальности в повседневный образ',
+		img: soon,
+	},
 ]
 
 const fadeIn = {
@@ -80,7 +116,7 @@ const Categories = () => {
 								<h3 className='opacity-100 duration-500 text-4xl font-bebas '>
 									{category.title}
 								</h3>
-								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 '>
+								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px]'>
 									{category.subTitle}
 								</h4>
 								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold'>

@@ -9,15 +9,13 @@ import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
 import { Button } from '../../shared/ui/button'
 import { usePrevNextButtons } from './EmblaCarouselArrowButtons'
 
+import reviews from './data'
+
 const numberWithinRange = (number: number, min: number, max: number): number =>
 	Math.min(Math.max(number, min), max)
 
-type PropType = {
-	slides: number[]
-	options?: EmblaOptionsType
-}
-
-const Review: FC<PropType> = ({ slides, options }) => {
+const Review: FC = () => {
+	const options: EmblaOptionsType = { loop: true }
 	const [emblaRef, emblaApi] = useEmblaCarousel(options)
 	const tweenFactor = useRef(0)
 	const tweenNodes = useRef<HTMLElement[]>([])
@@ -80,8 +78,9 @@ const Review: FC<PropType> = ({ slides, options }) => {
 
 	useEffect(() => {
 		if (!emblaApi) return
-		setTweenNodes(emblaApi)
-		setTweenFactor(emblaApi)
+
+		emblaApi.scrollTo(1)
+
 		tweenScale(emblaApi)
 		emblaApi
 			.on('reInit', tweenScale)
@@ -94,28 +93,24 @@ const Review: FC<PropType> = ({ slides, options }) => {
 			<div className='w-full duration-100'>
 				<div className='overflow-hidden duration-100' ref={emblaRef}>
 					<div className='flex duration-200'>
-						{slides.map(index => (
+						{reviews.map((review, index) => (
 							<div
 								className='bg-black py-10 px-20 mx-5 text-white border border-solid flex-none basis-1/2 transition-transform duration-500 ease-in-out emblaSlide max-md:p-6 max-md:basis-9/12 max-md:'
-								key={index}
+								key={review.id}
 							>
 								<span className='text-6xl font-bold'>&ldquo;</span>
-								<h4 className='mb-5 text-xl max-md:text-xs'>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Repellat optio laborum odio excepturi tempora similique
-									voluptates numquam quam iusto quod.
-								</h4>
-								<div className='flex'>
-									<div className='size-16 rounded-full overflow-hidden mr-4 max-md:size-10'>
+								<h4 className='mb-5 text-xl max-md:text-xs'>{review.text}</h4>
+								<div className='flex items-center'>
+									<div className='flex justify-center items-center rounded-full overflow-hidden mr-4 max-md:size-10'>
 										<Image
 											src={user}
 											alt='user'
-											className='size-full object-cover'
+											className='size-16 object-cover'
 										/>
 									</div>
 									<div className='flex flex-col justify-between text-lg py-1 max-md:text-xs'>
-										<h3>Named Name</h3>
-										<h3>Co-founder</h3>
+										<h3>{review.author}</h3>
+										<h3>{review.role}</h3>
 									</div>
 								</div>
 							</div>

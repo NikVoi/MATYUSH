@@ -40,7 +40,7 @@ const Header = () => {
 					animate={{ opacity: 1, transition: { delay: 0.3 } }}
 				>
 					<Button asChild variant='ghost'>
-						<Link href='/contact'>Let’s Contact</Link>
+						<Link href='#contacts'>Let’s Contact</Link>
 					</Button>
 				</motion.div>
 
