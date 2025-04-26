@@ -34,7 +34,7 @@ const Nav = ({ menuOpen }: { menuOpen: boolean }) => {
 						animate='visible'
 					>
 						<Link
-							href={`#${item.link.toLowerCase()}`}
+							href={`/#${item.link.toLowerCase()}`}
 							className='relative transition-all duration-300 after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'
 						>
 							{item.text}

@@ -44,7 +44,9 @@ const DetailsPicture: FC<IDetailsPictureProps> = ({ images }) => {
 							key={index}
 							onClick={() => handleThumbnailClick(img)}
 							className={`min-w-[80px] h-[80px] rounded-lg overflow-hidden border-2 cursor-pointer ${
-								selectedImage === img ? 'border-black' : 'border-transparent'
+								selectedImage === img
+									? 'border-[#fa216a]'
+									: 'border-transparent'
 							}`}
 						>
 							<Image

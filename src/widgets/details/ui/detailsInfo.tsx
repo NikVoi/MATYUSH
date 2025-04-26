@@ -47,7 +47,7 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 				Buy
 			</Button>
 
-			<hr className='my-8' />
+			<hr className='mb-8' />
 
 			<ProductTabs product={details} />
 		</section>

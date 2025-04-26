@@ -2,9 +2,13 @@ import bags_1 from '@/assets/details/bags/1.webp'
 import bags_2 from '@/assets/details/bags/2.webp'
 import bags_3 from '@/assets/details/bags/3.webp'
 
-import barbie_1 from '@/assets/details/barbie/1.webp'
-import barbie_2 from '@/assets/details/barbie/2.webp'
-import barbie_3 from '@/assets/details/barbie/3.webp'
+import barbie_1 from '@/assets/details/barbie/1.png'
+import barbie_2 from '@/assets/details/barbie/2.png'
+import barbie_3 from '@/assets/details/barbie/3.png'
+import barbie_4 from '@/assets/details/barbie/4.png'
+import barbie_5 from '@/assets/details/barbie/5.png'
+import barbie_6 from '@/assets/details/barbie/6.png'
+import barbie_7 from '@/assets/details/barbie/7.png'
 
 import hoodie_girl_1 from '@/assets/details/hoodie-girl/1.webp'
 import hoodie_girl_2 from '@/assets/details/hoodie-girl/2.webp'
@@ -131,7 +135,15 @@ export const CATEGORIES = [
 			sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
 			features: ['Яркие цвета', 'Гламурный дизайн', 'Лимитированная серия'],
 		},
-		images: [barbie_1, barbie_2, barbie_3],
+		images: [
+			barbie_1,
+			barbie_2,
+			barbie_3,
+			barbie_4,
+			barbie_5,
+			barbie_6,
+			barbie_7,
+		],
 		details:
 			'Одежда из коллекции Барби сочетает в себе элегантность и игривость, идеально подходящая для особых случаев.',
 		fabric: 'Материал: 100% атлас. Лёгкий и блестящий материал.',
