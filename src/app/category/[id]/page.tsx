@@ -1,18 +1,11 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { useParams } from 'next/navigation'
 
 import Container from '@/shared/ui/container'
 import { CATEGORIES } from '@/widgets/details/model/moc-data'
-
-const DetailsPicture = dynamic(
-	() => import('@/widgets/details/ui/detailsPicture'),
-	{ ssr: false }
-)
-const DetailsInfo = dynamic(() => import('@/widgets/details/ui/detailsInfo'), {
-	ssr: false,
-})
+import DetailsInfo from '@/widgets/details/ui/detailsInfo'
+import DetailsPicture from '@/widgets/details/ui/detailsPicture'
 
 const CategoryPage = () => {
 	const { id } = useParams()
