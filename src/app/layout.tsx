@@ -1,5 +1,5 @@
-import Footer from '@/widgets/footer/footer'
-import Header from '@/widgets/header/header'
+import Footer from '@/widgets/footer/ui/footer'
+import Header from '@/widgets/header/ui/header'
 import type { Metadata } from 'next'
 import { Bebas_Neue, Montserrat } from 'next/font/google'
 import './globals.css'
@@ -28,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${montserrat.variable} ${bebasNeue.variable} flex flex-col justify-between h-screen`}
+				className={`${montserrat.variable}  ${bebasNeue.variable}  flex flex-col justify-between h-screen`}
 			>
 				<Header />
 				{children}

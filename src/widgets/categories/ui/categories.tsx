@@ -5,58 +5,8 @@ import Container from '@/shared/ui/container'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-import bags from '@/assets/collections/bags.png'
-import barbie from '@/assets/collections/barbi.png'
-import dark from '@/assets/collections/dark.png'
-import first from '@/assets/collections/first.png'
-import lime from '@/assets/collections/lime.png'
-import soon from '@/assets/collections/soon.png'
 import { useRouter } from 'next/navigation'
-
-const categories = [
-	{
-		id: 1,
-		title: 'bags',
-		subTitle:
-			'Уникальные дизайнерские сумки с эффектом необработанных краев, создающие бунтарский и модный образ',
-		img: bags,
-	},
-	{
-		id: 2,
-		title: 'Hoodie',
-		subTitle:
-			'Объемные худи с минималистичным дизайном, обеспечивающие комфорт и стиль в повседневной носке',
-		img: first,
-	},
-	{
-		id: 3,
-		title: 'Pajamas',
-		subTitle:
-			'Изящные пижамы с открытой спиной и акцентом на женственность и утонченность',
-		img: dark,
-	},
-	{
-		id: 4,
-		title: 'Barbie',
-		subTitle:
-			'Легкий и элегантный комплект в расслабленном стиле, подчеркивающий естественную красоту',
-		img: barbie,
-	},
-	{
-		id: 5,
-		title: 'Lime',
-		subTitle:
-			'Современный худи с фирменным логотипом Matyush на спине, сочетающий комфорт и трендовость',
-		img: lime,
-	},
-	{
-		id: 6,
-		title: 'Long',
-		subTitle:
-			'Длинные худи с кристаллами, добавляющие блеска и оригинальности в повседневный образ',
-		img: soon,
-	},
-]
+import { CATEGORIES, TEXT_BUTTON } from '../model/moc-data'
 
 const fadeIn = {
 	hidden: { opacity: 0 },
@@ -84,7 +34,7 @@ const Categories = () => {
 			variants={fadeIn}
 		>
 			<Container className='grid grid-rows-3 grid-cols-3 gap-3 max-lg:grid-cols-2  '>
-				{categories.map(category => {
+				{CATEGORIES.map(category => {
 					const rowSpanClass =
 						category.id === 4
 							? 'row-span-2 h-full max-md:row-span-1 '
@@ -113,14 +63,14 @@ const Categories = () => {
 								/>
 							</div>
 							<div className=''>
-								<h3 className='opacity-100 duration-500 text-4xl font-bebas '>
+								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope '>
 									{category.title}
 								</h3>
-								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px]'>
+								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px] '>
 									{category.subTitle}
 								</h4>
 								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold'>
-									Discover
+									{TEXT_BUTTON}
 								</Button>
 							</div>
 						</motion.div>

@@ -1,8 +1,8 @@
 import Title from '@/shared/ui/title'
 import About from '@/widgets/about/about'
 import Bands from '@/widgets/bands/bands'
-import Categories from '@/widgets/categories/categories'
-import Contact from '@/widgets/contact/contact'
+import Categories from '@/widgets/categories/ui/categories'
+import Contact from '@/widgets/contact/ui/contact'
 import Home from '@/widgets/home/home'
 import Review from '@/widgets/Review/Review'
 
@@ -12,17 +12,17 @@ export default function HomePage() {
 			<Home />
 
 			<Bands />
-			<Title title='Feature collections' id='work' />
+			<Title title='Работы' id='work' />
 			<Categories />
 			<Bands />
 
-			<Title title='Client review' id='review' />
+			<Title title='Отзывы' id='review' />
 			<Review />
 
-			<Title title='About us' id='about' />
+			<Title title='О нас' id='about' />
 			<About />
 
-			<Title title='Contact Us' id='contacts' />
+			<Title title='связаться с нами' id='contacts' />
 			<Contact />
 		</main>
 	)

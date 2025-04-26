@@ -3,7 +3,7 @@
 import { MATYUSH } from '@/shared/config/constant'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { socialLinks } from './constants'
+import { socialLinks } from '../model/constants'
 
 const fadeInUp = {
 	hidden: { opacity: 0, y: 50 },

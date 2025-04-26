@@ -9,6 +9,7 @@
 	--bg: #2c2e2f;
 	--main: #fa216a;
 	--font-montserrat: 'Montserrat', sans-serif;
+	--font-manrope: 'Manrope', sans-serif;
 	--font-bebas: 'Bebas Neue', sans-serif;
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -52,6 +53,10 @@ body {
 	background: var(--white);
 	color: var(--text);
 	font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-manrope {
+	font-family: var(--font-manrope), sans-serif;
 }
 
 .font-bebas {
@@ -191,10 +196,10 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
 }

@@ -5,6 +5,7 @@ import { Button } from '@/shared/ui/button'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
+import { LET_CONTACT } from '../model/constants'
 import BurgerButton from './burgerButton'
 import Nav from './nav'
 
@@ -40,7 +41,7 @@ const Header = () => {
 					animate={{ opacity: 1, transition: { delay: 0.3 } }}
 				>
 					<Button asChild variant='ghost'>
-						<Link href='#contacts'>Let’s Contact</Link>
+						<Link href='#contacts'>{LET_CONTACT}</Link>
 					</Button>
 				</motion.div>
 

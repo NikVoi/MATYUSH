@@ -1,5 +1,6 @@
 'use client'
 
+import { LINKS } from '@/shared/config/constant'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -11,8 +12,6 @@ const navItemVariants = {
 		transition: { delay: 0.2 * i, duration: 0.5, ease: 'easeOut' },
 	}),
 }
-
-const navLinks = ['Work', 'Review', 'About']
 
 const Nav = ({ menuOpen }: { menuOpen: boolean }) => {
 	return (
@@ -26,19 +25,19 @@ const Nav = ({ menuOpen }: { menuOpen: boolean }) => {
 			aria-label='Main navigation'
 		>
 			<ul className='flex md:flex-row gap-5'>
-				{navLinks.map((item, index) => (
+				{LINKS.map(item => (
 					<motion.li
-						key={item}
-						custom={index}
+						key={item.link}
+						custom={item.link}
 						variants={navItemVariants}
 						initial='hidden'
 						animate='visible'
 					>
 						<Link
-							href={`#${item.toLowerCase()}`}
+							href={`#${item.link.toLowerCase()}`}
 							className='relative transition-all duration-300 after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'
 						>
-							{item}
+							{item.text}
 						</Link>
 					</motion.li>
 				))}

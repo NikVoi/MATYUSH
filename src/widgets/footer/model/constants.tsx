@@ -5,23 +5,25 @@ import { MdEmail } from 'react-icons/md'
 
 export const footerColumns = [
 	{
-		title: 'Company',
-		links: ['About us', 'Size Guide', 'Shipping & Returns'],
+		title: 'Компания',
+		links: ['Работы', 'Отзывы', 'О нас'],
 	},
-	{
-		title: 'Catalog',
-		links: ['Shirts', 'Bottoms', 'Caps'],
-	},
-	{
-		title: 'Terms & Policies',
-		links: ['Terms of Service', 'Privacy Policy', 'Cookie Policy'],
-	},
+	// {
+	// 	title: 'Catalog',
+	// 	links: ['Shirts', 'Bottoms', 'Caps'],
+	// },
+	// {
+	// 	title: 'Terms & Policies',
+	// 	links: ['Terms of Service', 'Privacy Policy', 'Cookie Policy'],
+	// },
 ]
+
+export const CONTACT = 'Контакты'
 
 export const contactInfo = [
 	{ text: 'contact@matyush.com', icon: <MdEmail /> },
-	{ text: '+1 (234) 567-89-00', icon: <BsFillTelephoneFill /> },
-	{ text: 'New York, USA', icon: <IoLocationSharp /> },
+	{ text: '+375 29 747 4332', icon: <BsFillTelephoneFill /> },
+	{ text: 'Беларусь, Минск', icon: <IoLocationSharp /> },
 ]
 
 export const socialLinks = [

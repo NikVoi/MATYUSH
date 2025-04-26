@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { contactInfo } from './constants'
+import { CONTACT, contactInfo } from '../model/constants'
 
 const fadeInUp = {
 	hidden: { opacity: 0, y: 50 },
@@ -12,7 +12,7 @@ const FooterContact = () => {
 	return (
 		<motion.div variants={fadeInUp}>
 			<h3 className='font-bold mb-3 text-xl text-right max-lg:text-center'>
-				Contact
+				{CONTACT}
 			</h3>
 			<ul>
 				{contactInfo.map(({ text, icon }) => (
