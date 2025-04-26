@@ -27,26 +27,33 @@ const Categories = () => {
 
 	return (
 		<motion.section
-			className={`w-full py-12 max-md:py-0 `}
+			className={`w-full my-12 max-md:py-0 `}
 			initial='hidden'
 			whileInView='visible'
 			viewport={{ once: true, amount: 0.3 }}
 			variants={fadeIn}
 		>
-			<Container className='grid grid-rows-3 grid-cols-3 gap-3 max-lg:grid-cols-2  '>
+			<Container className='grid grid-rows-3 grid-cols-3 gap-3 max-lg:grid-cols-2  max-md:grid-cols-1 max-md:grid-rows-6'>
 				{CATEGORIES.map(category => {
-					const rowSpanClass =
-						category.id === 4
-							? 'row-span-2 h-full max-md:row-span-1 '
-							: category.id === 5
-							? 'row-span-2 h-full  max-md:row-span-1 '
-							: category.id % 2 === 0 && category.id !== 6
-							? 'row-span-2 h-full max-lg:row-span-2 max-md:row-span-1'
-							: ''
+					let rowSpanClass = ''
+					let colStartClass = ''
 
-					const colStartClass = category.id === 6 ? 'max-lg:col-start-2' : ''
+					if (category.id === 4)
+						rowSpanClass = 'row-span-2 h-full max-md:row-span-1'
+					if (category.id === 5)
+						rowSpanClass = 'row-span-2 h-full  max-md:row-span-1'
+					if (category.id % 2 === 0 && category.id !== 6)
+						rowSpanClass =
+							'row-span-2 h-full max-lg:row-span-2 max-md:row-span-1'
+					if (category.id === 6) colStartClass = 'col-start-2'
 
-					const containerClass = `relative flex flex-col justify-center items-center w-full rounded-2xl overflow-hidden text-white h-[250px] duration-300 text-center group max-md:h-[200px]`
+					const containerClass = `
+						relative flex flex-col justify-center items-center 
+						w-full rounded-2xl overflow-hidden text-white h-[250px] 
+						text-center group cursor-pointer transition-all duration-300 
+						${rowSpanClass} ${colStartClass}
+						max-md:!row-span-1 max-md:!col-start-auto max-md:h-[300px]
+					`
 
 					return (
 						<motion.div
@@ -63,13 +70,13 @@ const Categories = () => {
 								/>
 							</div>
 							<div className=''>
-								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope '>
+								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope max-md:mb-4'>
 									{category.title}
 								</h3>
-								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px] '>
+								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px] max-md:hidden'>
 									{category.subTitle}
 								</h4>
-								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold'>
+								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold max-md:opacity-100'>
 									{TEXT_BUTTON}
 								</Button>
 							</div>

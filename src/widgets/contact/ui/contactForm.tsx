@@ -19,10 +19,10 @@ interface Props {
 
 const ContactForm: FC<Props> = ({ className }) => {
 	return (
-		<section className='border border-solid border-neutral-400 rounded-xl p-5 shadow-xl  w-[450px] ml-5'>
+		<section className='border border-solid border-neutral-400 rounded-xl p-5 shadow-xl w-[450px] max-md:w-[350px] ml-5'>
 			<div>
 				<h2 className='text-4xl font-bold mb-2'>{HEADING}</h2>
-				<h3 className='text-base mb-10'>{SUBHEADING}</h3>
+				<h3 className='text-base mb-10 max-md:mb-5'>{SUBHEADING}</h3>
 			</div>
 
 			<form action=''>

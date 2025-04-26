@@ -5,7 +5,7 @@ import ContactInfo from '@/widgets/contact/ui/cotactInfo'
 export default function Contact() {
 	return (
 		<section id='contacts'>
-			<Container className='flex justify-between flex-1 my-20 max-md:flex-col max-md:text-center max-md:items-center'>
+			<Container className='flex justify-between flex-1 mb-20 max-md:flex-col max-md:text-center max-md:items-center'>
 				<ContactInfo />
 
 				<ContactForm />

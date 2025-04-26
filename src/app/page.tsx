@@ -11,8 +11,8 @@ export default function HomePage() {
 		<main className='w-full relative'>
 			<Home />
 
-			<Bands />
 			<Title title='Работы' id='work' />
+			<Bands />
 			<Categories />
 			<Bands />
 
