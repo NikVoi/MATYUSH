@@ -16,7 +16,7 @@ const Home = () => {
 				<Image
 					src={img}
 					alt='das'
-					loading='lazy'
+					priority
 					className='absolute top-0 left-0 w-full h-full object-cover'
 				/>
 			</motion.div>

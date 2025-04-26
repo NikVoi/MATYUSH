@@ -1,9 +1,9 @@
 'use client'
 
 import Title from '@/shared/ui/title'
+import Home from '@/widgets/home/home'
 import dynamic from 'next/dynamic'
 
-const Home = dynamic(() => import('@/widgets/home/home'), { ssr: false })
 const Bands = dynamic(() => import('@/widgets/bands/bands'), { ssr: false })
 const Categories = dynamic(() => import('@/widgets/categories/ui/categories'), {
 	ssr: false,

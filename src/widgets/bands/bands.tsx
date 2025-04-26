@@ -11,9 +11,12 @@ const Bands = () => {
 	const isInView = useInView(ref, { once: true, margin: '-100px' })
 
 	return (
-		<div className='relative w-full overflow-hidden py-6 select-none' ref={ref}>
+		<div
+			className='relative w-full overflow-hidden py-20 max-md:py-6 select-none'
+			ref={ref}
+		>
 			<motion.div
-				className='relative -rotate-[1deg] flex items-center w-full h-[60px] whitespace-nowrap bg-main top-2 max-md:h-[30px] '
+				className='relative -rotate-[1deg] max-md:-rotate-[2deg] flex items-center w-full h-[60px] whitespace-nowrap bg-main top-12 max-md:top-2 max-md:h-[30px] '
 				initial={{ opacity: 0, filter: 'blur(20px)', y: -50, rotate: -4 }}
 				animate={
 					isInView ? { opacity: 1, filter: 'blur(0px)', y: 0, rotate: -4 } : {}
@@ -31,7 +34,7 @@ const Bands = () => {
 			</motion.div>
 
 			<motion.div
-				className='relative w-full flex items-center h-[60px] bg-main overflow-hidden rotate-[3deg] -top-6 max-md:h-[30px]'
+				className='relative w-full flex items-center h-[60px] bg-main overflow-hidden rotate-[2deg] -top-6 max-md:h-[30px]'
 				initial={{ opacity: 0, filter: 'blur(20px)', y: 50, rotate: 4 }}
 				animate={
 					isInView ? { opacity: 1, filter: 'blur(0px)', y: 0, rotate: 4 } : {}

@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/shared/ui/button'
+import { motion } from 'framer-motion' // 👈 добавляем motion
 import { FC, useState } from 'react'
 import { IDetailsInfoProps } from '../model/types'
 import { ProductTabs } from './TabContent'
@@ -15,7 +16,12 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 	if (!details) return <p className='text-center text-xl'>Загрузка...</p>
 
 	return (
-		<section className='w-full lg:w-[48%]'>
+		<motion.section
+			className='w-full lg:w-[48%]'
+			initial={{ opacity: 0, y: 50 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.8, ease: 'easeOut' }}
+		>
 			<h2 className='text-4xl lg:text-9xl font-bold mb-4 font-bebas text-right'>
 				{details.title}
 			</h2>
@@ -39,18 +45,18 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 			</div>
 
 			<Button
-				className={`bg-main w-full text-3xl lg:text-5xl py-4 lg:py-8 font-bebas cursor-pointer transition rounded-xl mb-10 ${
+				className={`bg-main w-full text-2xl lg:text-5xl py-4 lg:py-8 font-manrope font-bold cursor-pointer transition rounded-xl mb-10 ${
 					activeSize ? '' : 'opacity-50 cursor-not-allowed'
 				}`}
 				disabled={!activeSize}
 			>
-				Buy
+				КУПИТЬ
 			</Button>
 
 			<hr className='mb-8' />
 
 			<ProductTabs product={details} />
-		</section>
+		</motion.section>
 	)
 }
 

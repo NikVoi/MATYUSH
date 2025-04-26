@@ -1,4 +1,5 @@
 'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import Image, { StaticImageData } from 'next/image'
 import { FC, useCallback, useState } from 'react'
@@ -18,7 +19,12 @@ const DetailsPicture: FC<IDetailsPictureProps> = ({ images }) => {
 
 	return (
 		<>
-			<section className='flex flex-col gap-4 w-full lg:w-[60%]'>
+			<motion.section
+				className='flex flex-col gap-4 w-full lg:w-[60%]'
+				initial={{ opacity: 0, scale: 0.95 }}
+				animate={{ opacity: 1, scale: 1 }}
+				transition={{ duration: 0.8, ease: 'easeOut' }}
+			>
 				<motion.div
 					className='w-full h-[800px] max-lg:h-[700px] overflow-hidden rounded-xl cursor-zoom-in relative'
 					onClick={handleImageClick}
@@ -60,7 +66,7 @@ const DetailsPicture: FC<IDetailsPictureProps> = ({ images }) => {
 						</button>
 					))}
 				</div>
-			</section>
+			</motion.section>
 
 			<AnimatePresence>
 				{isModalOpen && (
