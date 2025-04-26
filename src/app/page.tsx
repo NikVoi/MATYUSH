@@ -1,10 +1,18 @@
+'use client'
+
 import Title from '@/shared/ui/title'
-import About from '@/widgets/about/about'
-import Bands from '@/widgets/bands/bands'
-import Categories from '@/widgets/categories/ui/categories'
-import Contact from '@/widgets/contact/ui/contact'
-import Home from '@/widgets/home/home'
-import Review from '@/widgets/Review/Review'
+import dynamic from 'next/dynamic'
+
+const Home = dynamic(() => import('@/widgets/home/home'), { ssr: false })
+const Bands = dynamic(() => import('@/widgets/bands/bands'), { ssr: false })
+const Categories = dynamic(() => import('@/widgets/categories/ui/categories'), {
+	ssr: false,
+})
+const About = dynamic(() => import('@/widgets/about/about'), { ssr: false })
+const Contact = dynamic(() => import('@/widgets/contact/ui/contact'), {
+	ssr: false,
+})
+const Review = dynamic(() => import('@/widgets/Review/Review'), { ssr: false })
 
 export default function HomePage() {
 	return (
@@ -22,7 +30,7 @@ export default function HomePage() {
 			<Title title='О нас' id='about' />
 			<About />
 
-			<Title title='связаться с нами' id='contacts' />
+			<Title title='Связаться с нами' id='contacts' />
 			<Contact />
 		</main>
 	)
