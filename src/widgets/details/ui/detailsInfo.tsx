@@ -26,7 +26,7 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 						<div
 							key={size}
 							onClick={() => handleSizeClick(size)}
-							className={`border px-8 pb-2 pt-3 rounded-lg cursor-pointer transition text-2xl lg:text-3xl font-bebas ${
+							className={`border px-8 pb-2 pt-3 rounded-lg cursor-pointer transition text-2xl lg:text-3xl font-bebas max-md:px-4 max-md:pb-1 max-md:pt-2 ${
 								activeSize === size ? 'bg-main text-white' : 'hover:bg-gray-200'
 							}`}
 						>

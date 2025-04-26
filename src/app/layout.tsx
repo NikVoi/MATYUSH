@@ -29,7 +29,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body
-				className={`${montserrat.variable}  ${bebasNeue.variable}  flex flex-col justify-between h-screen`}
+				className={`${montserrat.variable}  ${bebasNeue.variable}  flex flex-col justify-between h-screen `}
 			>
 				<Header />
 				{children}

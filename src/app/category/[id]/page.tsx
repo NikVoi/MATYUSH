@@ -14,7 +14,7 @@ const CategoryPage = () => {
 		return <h1 className='text-center text-xl mt-10'>Category not found</h1>
 
 	return (
-		<Container className='flex flex-col lg:flex-row  justify-between my-24 lg:my-40 gap-10'>
+		<Container className='flex flex-col lg:flex-row  justify-between my-24 lg:my-40 gap-10 px-2'>
 			<DetailsPicture images={category.images} />
 			<DetailsInfo details={category} />
 		</Container>
