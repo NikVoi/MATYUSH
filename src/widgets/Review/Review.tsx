@@ -104,6 +104,7 @@ const Review: FC = () => {
 									<div className='flex justify-center items-center rounded-full overflow-hidden mr-4 max-md:size-10'>
 										<Image
 											src={user}
+											loading='lazy'
 											alt='user'
 											className='size-16 object-cover'
 										/>

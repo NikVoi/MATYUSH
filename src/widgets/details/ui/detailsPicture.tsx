@@ -53,6 +53,7 @@ const DetailsPicture: FC<IDetailsPictureProps> = ({ images }) => {
 								src={img}
 								alt={`Thumbnail ${index}`}
 								className='object-cover w-full h-full'
+								loading='lazy'
 								width={80}
 								height={80}
 							/>
@@ -80,6 +81,7 @@ const DetailsPicture: FC<IDetailsPictureProps> = ({ images }) => {
 							<Image
 								src={selectedImage}
 								alt='Full screen'
+								loading='lazy'
 								className='object-contain w-full h-full'
 								width={1600}
 								height={1200}

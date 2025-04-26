@@ -44,6 +44,7 @@ const About = () => {
 						<Image
 							src={ABOUT_IMG}
 							alt='user'
+							loading='lazy'
 							className='object-cover mb-4 h-[400px] w-[400px] mx-auto max-md:size-[230px] rounded-full overflow-hidden
 							'
 						/>

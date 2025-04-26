@@ -33,7 +33,7 @@ const Header = () => {
 					{MATYUSH}
 				</Link>
 
-				<Nav menuOpen={menuOpen} />
+				<Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
 				<motion.div
 					className='hidden md:block'
