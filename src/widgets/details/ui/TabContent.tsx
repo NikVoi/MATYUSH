@@ -4,7 +4,7 @@ import { IDetailsType } from '../model/types'
 const tabs = [
 	{ label: 'Дэталі', value: 'detail' },
 	{ label: 'Матэрыялы', value: 'fabric' },
-	{ label: 'Сыход', value: 'care' },
+	{ label: 'Дагляд', value: 'care' },
 	{ label: 'Характарыстыкі', value: 'specifications' },
 ]
 
@@ -29,13 +29,13 @@ const TabContent = ({
 			return (
 				<div className='text-base space-y-2'>
 					<p>
-						<b>Брэнд:</b> {product.specifications?.brand}
-					</p>
-					<p>
 						<b>Колер:</b> {product.specifications?.color}
 					</p>
 					<p>
 						<b>Матэрыял:</b> {product.specifications?.material}
+					</p>
+					<p>
+						<b>Параметры на мадэлях: </b> {product.specifications?.params}
 					</p>
 				</div>
 			)
