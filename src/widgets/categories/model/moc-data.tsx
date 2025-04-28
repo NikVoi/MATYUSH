@@ -1,7 +1,7 @@
 import bags from '@/assets/collections/bags.jpg'
 import barbie from '@/assets/collections/barbie.jpg'
 import dark from '@/assets/collections/dark.jpg'
-import first from '@/assets/collections/first.png'
+import first from '@/assets/collections/first.webp'
 import lime from '@/assets/collections/lime.jpg'
 import long from '@/assets/collections/long.jpg'
 
@@ -33,7 +33,7 @@ export const CATEGORIES = [
 	},
 	{
 		id: 6,
-		title: 'Лонг Каханне Йё',
+		title: 'Лонг Каханне',
 		img: long,
 	},
 ]

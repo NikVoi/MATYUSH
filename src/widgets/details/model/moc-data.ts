@@ -133,7 +133,7 @@ export const CATEGORIES = [
 		specifications: {
 			color: 'пяшчотна аліўкавы',
 			material: 'замаўляць байку на размер больш',
-			params: '81/91/100, рост 190 і 103/80/98, рост 181',
+			params: '91/81/100, рост 190 і 103/80/98, рост 181',
 		},
 		images: [
 			hoodie_man_1,

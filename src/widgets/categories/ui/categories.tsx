@@ -66,7 +66,9 @@ const Categories = () => {
 								<Image
 									src={category.img}
 									loading='lazy'
+									quality={80}
 									alt={category.title}
+									placeholder='blur'
 									className={`absolute top-0 left-0 w-full h-full object-cover grayscale transition -z-10 group-hover:grayscale-0 group-hover:scale-110 group-hover:duration-300 `}
 								/>
 							</div>
