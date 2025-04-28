@@ -30,13 +30,23 @@ import pajames_4 from '@/assets/details/pajames/4.jpg'
 import pajames_5 from '@/assets/details/pajames/5.jpg'
 import pajames_6 from '@/assets/details/pajames/6.jpg'
 
-import hoodie_man_1 from '@/assets/details/hoodie-man/1.webp'
-import hoodie_man_2 from '@/assets/details/hoodie-man/2.webp'
-import hoodie_man_3 from '@/assets/details/hoodie-man/3.webp'
+import hoodie_man_1 from '@/assets/details/hoodie-man/1.png'
+import hoodie_man_2 from '@/assets/details/hoodie-man/2.png'
+import hoodie_man_3 from '@/assets/details/hoodie-man/3.png'
+import hoodie_man_4 from '@/assets/details/hoodie-man/4.png'
+import hoodie_man_5 from '@/assets/details/hoodie-man/5.png'
+import hoodie_man_6 from '@/assets/details/hoodie-man/6.png'
+import hoodie_man_7 from '@/assets/details/hoodie-man/7.png'
 
-import long_1 from '@/assets/details/long/1.webp'
-import long_2 from '@/assets/details/long/2.webp'
-import long_3 from '@/assets/details/long/3.webp'
+import long_1 from '@/assets/details/long/1.png'
+import long_2 from '@/assets/details/long/2.png'
+import long_3 from '@/assets/details/long/3.png'
+import long_4 from '@/assets/details/long/4.png'
+import long_5 from '@/assets/details/long/5.png'
+import long_6 from '@/assets/details/long/6.png'
+import long_7 from '@/assets/details/long/7.png'
+import long_8 from '@/assets/details/long/8.png'
+import long_9 from '@/assets/details/long/9.png'
 
 export const CATEGORIES = [
 	{
@@ -115,32 +125,53 @@ export const CATEGORIES = [
 		details:
 			'Одежда из коллекции Барби сочетает в себе элегантность и игривость, идеально подходящая для особых случаев.',
 		fabric: 'Материал: 100% атлас. Лёгкий и блестящий материал.',
-		care: 'Только сухая чистка. Хранить в чехле для одежды.',
+		care: 'Ручное ці мыццё ў пранальнай машыне не больш за 30•С',
 	},
 	{
 		id: '5',
-		title: 'Лайм Коллекция',
+		title: 'Байка RS',
 		specifications: {
-			color: 'Лаймовый',
-			material: 'Полиэстер',
+			color: 'пяшчотна аліўкавы',
+			material: 'замаўляць байку на размер больш',
+			params: '81/91/100, рост 190 і 103/80/98, рост 181',
 		},
-		images: [hoodie_man_1, hoodie_man_2, hoodie_man_3],
+		images: [
+			hoodie_man_1,
+			hoodie_man_2,
+			hoodie_man_3,
+			hoodie_man_4,
+			hoodie_man_5,
+			hoodie_man_6,
+			hoodie_man_7,
+		],
 		details:
-			'Элементы лаймовой коллекции созданы для тех, кто не боится быть в центре внимания.',
-		fabric: 'Материал: 100% полиэстер. Лёгкий и быстро сохнущий материал.',
-		care: 'Стирка при 30°C. Не отбеливать. Гладить на минимальной температуре.',
+			'RS — rhinestones sparkle. Стразы выкладзеныя ў ручную, вельмі прыгожа пераліваюцца, замацаваны гарачым метадам (жалязкаю)',
+		fabric: `Анова — 100% бавоўна Руша — 70% сінтэтыка, 30% бавоўна `,
+		care: 'Ручное ці мыццё ў пранальнай машыне не больш за 30•С',
 	},
 	{
 		id: '6',
-		title: 'Длинные наряды',
+		title: 'Лонг Каханне',
 		specifications: {
-			color: 'Черный',
+			color:
+				'малочны з чырвонаю рушаю (яна можа быць зроблена і ў іншым колеры па вашаму жаданню)',
 			material: 'Шёлк',
+			params: '95/65/95, рост 168 і 91/81/100, рост 190',
 		},
-		images: [long_1, long_2, long_3],
+		images: [
+			long_1,
+			long_2,
+			long_3,
+			long_4,
+			long_5,
+			long_6,
+			long_7,
+			long_8,
+			long_9,
+		],
 		details:
-			'Длинные наряды из шёлка подчеркнут вашу элегантность и изысканный вкус.',
-		fabric: 'Материал: 100% шёлк. Натуральный и роскошный материал.',
-		care: 'Ручная стирка в холодной воде. Не выкручивать. Сушить в разложенном виде.',
+			'Лонг Каханне прадстаўлены ў жаночым і мужчынскім размерах. У мужчынскім варыянце больш доўгія рукавы і аснова, чым у жаночым. Вы самі выбіраеце з якога бока павінна быць руша',
+		fabric: 'Анова — 100% бавоўна Руша — 70% сінтэтыка, 30% бавоўна ',
+		care: 'Ручное ці мыццё ў пранальнай машыне не больш за 30•С',
 	},
 ]
