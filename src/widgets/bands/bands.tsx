@@ -16,7 +16,7 @@ const Bands = () => {
 			ref={ref}
 		>
 			<motion.div
-				className='relative -rotate-[1deg] max-md:-rotate-[2deg] flex items-center w-full h-[60px] whitespace-nowrap bg-main top-12 max-md:top-2 max-md:h-[30px] '
+				className='relative -rotate-[1deg] max-md:-rotate-[2deg] flex items-center w-full h-[60px] whitespace-nowrap bg-main top-12 max-md:top-2 max-md:h-[30px] font-archivo'
 				initial={{ opacity: 0, filter: 'blur(20px)', y: -50, rotate: -4 }}
 				animate={
 					isInView ? { opacity: 1, filter: 'blur(0px)', y: 0, rotate: -4 } : {}
@@ -24,17 +24,17 @@ const Bands = () => {
 				transition={{ duration: 1, ease: 'easeOut' }}
 			>
 				<div className={`flex whitespace-nowrap animate-marquee `}>
-					<p className='text-white text-4xl max-md:text-base font-bold uppercase whitespace-nowrap'>
+					<p className='text-white text-4xl max-md:text-base   uppercase whitespace-nowrap'>
 						{BANDS_TITLE}
 					</p>
-					<p className='text-white text-4xl max-md:text-base font-bold uppercase whitespace-nowrap'>
+					<p className='text-white text-4xl max-md:text-base  uppercase whitespace-nowrap'>
 						{BANDS_TITLE}
 					</p>
 				</div>
 			</motion.div>
 
 			<motion.div
-				className='relative w-full flex items-center h-[60px] bg-main overflow-hidden rotate-[2deg] -top-6 max-md:h-[30px]'
+				className='relative w-full flex items-center h-[60px] bg-main overflow-hidden rotate-[2deg] -top-6 max-md:h-[30px] font-archivo'
 				initial={{ opacity: 0, filter: 'blur(20px)', y: 50, rotate: 4 }}
 				animate={
 					isInView ? { opacity: 1, filter: 'blur(0px)', y: 0, rotate: 4 } : {}
@@ -44,10 +44,10 @@ const Bands = () => {
 				<div
 					className={`flex whitespace-nowrap animate-marquee animate-marquee-reverse`}
 				>
-					<p className='text-white text-4xl max-md:text-base font-bold uppercase whitespace-nowrap'>
+					<p className='text-white text-4xl max-md:text-base uppercase whitespace-nowrap'>
 						{BANDS_TITLE}
 					</p>
-					<p className='text-white text-4xl max-md:text-base font-bold uppercase whitespace-nowrap'>
+					<p className='text-white text-4xl max-md:text-base uppercase whitespace-nowrap'>
 						{BANDS_TITLE}
 					</p>
 				</div>

@@ -2,11 +2,10 @@ import { useState } from 'react'
 import { IDetailsType } from '../model/types'
 
 const tabs = [
-	{ label: 'Детали', value: 'detail' },
-	{ label: 'Материалы', value: 'fabric' },
-	{ label: 'Уход', value: 'care' },
-	{ label: 'Размеры', value: 'size' },
-	{ label: 'Характеристики', value: 'specifications' },
+	{ label: 'Дэталі', value: 'detail' },
+	{ label: 'Матэрыялы', value: 'fabric' },
+	{ label: 'Сыход', value: 'care' },
+	{ label: 'Характарыстыкі', value: 'specifications' },
 ]
 
 const TabContent = ({
@@ -26,56 +25,17 @@ const TabContent = ({
 		case 'care':
 			return <div className='opacity-80'>{product.care}</div>
 
-		case 'size':
-			return (
-				<div className='overflow-x-auto'>
-					<table className='w-full text-left border-collapse min-w-[500px]'>
-						<thead className='bg-[var(--white)] text-[var(--text)]'>
-							<tr>
-								<th className='border-b p-4 font-semibold'>Размер</th>
-								<th className='border-b p-4 font-semibold'>Ширина (см)</th>
-								<th className='border-b p-4 font-semibold'>Высота (см)</th>
-								<th className='border-b p-4 font-semibold'>Глубина (см)</th>
-							</tr>
-						</thead>
-						<tbody>
-							{product.sizeGuide && product.sizeGuide.length > 0 ? (
-								product.sizeGuide.map((item, index) => (
-									<tr
-										key={item.size}
-										className={`transition hover:bg-[var(--main)] hover:text-[var(--white)] ${
-											index % 2 === 0 ? 'bg-[#f9f9f9]' : 'bg-[#f1f1f1]'
-										}`}
-									>
-										<td className='border-b p-4'>{item.size}</td>
-										<td className='border-b p-4'>{item.width}</td>
-										<td className='border-b p-4'>{item.height}</td>
-										<td className='border-b p-4'>{item.depth}</td>
-									</tr>
-								))
-							) : (
-								<tr>
-									<td colSpan={4} className='text-center'>
-										Размеры не доступны
-									</td>
-								</tr>
-							)}
-						</tbody>
-					</table>
-				</div>
-			)
-
 		case 'specifications':
 			return (
 				<div className='text-base space-y-2'>
 					<p>
-						<b>Бренд:</b> {product.specifications?.brand}
+						<b>Брэнд:</b> {product.specifications?.brand}
 					</p>
 					<p>
-						<b>Цвет:</b> {product.specifications?.color}
+						<b>Колер:</b> {product.specifications?.color}
 					</p>
 					<p>
-						<b>Материал:</b> {product.specifications?.material}
+						<b>Матэрыял:</b> {product.specifications?.material}
 					</p>
 				</div>
 			)
@@ -89,7 +49,7 @@ export const ProductTabs = ({ product }: { product: IDetailsType }) => {
 	const [activeTab, setActiveTab] = useState('detail')
 
 	return (
-		<div className='mt-10'>
+		<div className='my-10'>
 			<div className='flex justify-between gap-6 pb-2 mb-4 overflow-x-auto'>
 				{tabs.map(tab => (
 					<button

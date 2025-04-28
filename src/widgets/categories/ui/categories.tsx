@@ -27,7 +27,7 @@ const Categories = () => {
 
 	return (
 		<motion.section
-			className={`w-full my-12 max-md:py-0 `}
+			className={`w-full my-12 max-md:px-2  `}
 			initial='hidden'
 			whileInView='visible'
 			viewport={{ once: true, amount: 0.3 }}
@@ -71,12 +71,10 @@ const Categories = () => {
 								/>
 							</div>
 							<div className=''>
-								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope max-md:mb-4'>
+								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope mb-4'>
 									{category.title}
 								</h3>
-								<h4 className='group-hover:opacity-100 opacity-0 duration-500 mb-4 w-[400px] max-md:hidden'>
-									{category.subTitle}
-								</h4>
+
 								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold max-md:opacity-100'>
 									{TEXT_BUTTON}
 								</Button>

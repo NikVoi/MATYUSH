@@ -16,7 +16,7 @@ const FooterBrand = () => {
 			className='flex justify-center items-center py-10 flex-wrap max-md:flex-col'
 			variants={fadeInUp}
 		>
-			<h2 className='flex-1 text-9xl flex justify-center max-md:text-8xl font-bebas'>
+			<h2 className='flex-1 text-9xl flex justify-center max-md:text-6xl font-archivo'>
 				{MATYUSH}
 			</h2>
 			<nav className='max-md:mt-4'>

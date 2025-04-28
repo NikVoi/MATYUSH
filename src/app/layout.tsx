@@ -4,7 +4,7 @@ import Loader from '@/shared/ui/loader'
 import Footer from '@/widgets/footer/ui/footer'
 import Header from '@/widgets/header/ui/header'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Bebas_Neue, Montserrat } from 'next/font/google'
+import { Archivo_Black, Bebas_Neue, Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react'
 import './globals.css'
 
@@ -17,6 +17,12 @@ const bebasNeue = Bebas_Neue({
 	subsets: ['latin'],
 	weight: ['400'],
 	variable: '--font-bebas',
+})
+
+const archivoBlack = Archivo_Black({
+	subsets: ['latin'],
+	weight: ['400'],
+	variable: '--font-archivo',
 })
 
 export default function RootLayout({
@@ -37,7 +43,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body
-				className={`${montserrat.variable} ${bebasNeue.variable} flex flex-col justify-between min-h-screen`}
+				className={`${montserrat.variable} ${archivoBlack.variable}  ${bebasNeue.variable} flex flex-col justify-between min-h-screen`}
 			>
 				<AnimatePresence mode='wait'>
 					{isLoading ? (

@@ -1,6 +1,6 @@
 'use client'
 
-import ABOUT_IMG from '@/assets/about.png'
+import ABOUT_IMG from '@/assets/about.jpg'
 import Container from '@/shared/ui/container'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -20,19 +20,10 @@ const slideUp = (delay = 0) => ({
 	},
 })
 
-const starAnimation = {
-	hidden: { scale: 0, opacity: 0 },
-	visible: {
-		scale: 1.2,
-		opacity: 1,
-		transition: { duration: 0.5, ease: 'easeOut' },
-	},
-}
-
 const About = () => {
 	return (
 		<motion.section
-			className={`text-[#3d3f43] `}
+			className={`text-[#3d3f43] mb-30`}
 			initial='hidden'
 			whileInView='visible'
 			viewport={{ once: true, amount: 0.6 }}
@@ -53,9 +44,6 @@ const About = () => {
 				<div className='w-5/12 text-xl max-md:w-full max-md:text-base'>
 					<motion.h4 className='' variants={slideUp(0.4)}>
 						{ABOUT.heading}
-					</motion.h4>
-					<motion.h4 className='mb-5' variants={slideUp(0.6)}>
-						{ABOUT.info}
 					</motion.h4>
 				</div>
 			</Container>

@@ -7,7 +7,8 @@
 	--black: #1a1816;
 	--text: #0a0a0a;
 	--bg: #2c2e2f;
-	--main: #fa216a;
+	--main: #cf4471;
+	--font-archivo: 'Archivo Black', sans-serif;
 	--font-montserrat: 'Montserrat', sans-serif;
 	--font-manrope: 'Manrope', sans-serif;
 	--font-bebas: 'Bebas Neue', sans-serif;
@@ -57,6 +58,10 @@ body {
 
 .font-manrope {
 	font-family: var(--font-manrope), sans-serif;
+}
+
+.font-archivo {
+	font-family: var(--font-archivo), sans-serif;
 }
 
 .font-bebas {

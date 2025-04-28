@@ -1,7 +1,10 @@
 'use client'
 
-import user from '@/assets/collections/first.png'
-import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
+import {
+	EmblaCarouselType,
+	EmblaEventType,
+	EmblaOptionsType,
+} from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
 import { FC, useCallback, useEffect, useRef } from 'react'
@@ -10,6 +13,7 @@ import { Button } from '../../shared/ui/button'
 import { usePrevNextButtons } from './EmblaCarouselArrowButtons'
 
 import reviews from './data'
+const TWEEN_FACTOR_BASE = 0.52
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
 	Math.min(Math.max(number, min), max)
@@ -17,8 +21,8 @@ const numberWithinRange = (number: number, min: number, max: number): number =>
 const Review: FC = () => {
 	const options: EmblaOptionsType = { loop: true }
 	const [emblaRef, emblaApi] = useEmblaCarousel(options)
-	const tweenFactor = useRef(0)
 	const tweenNodes = useRef<HTMLElement[]>([])
+	const tweenFactor = useRef(0)
 
 	const {
 		prevBtnDisabled,
@@ -27,98 +31,127 @@ const Review: FC = () => {
 		onNextButtonClick,
 	} = usePrevNextButtons(emblaApi)
 
-	const setTweenNodes = useCallback((emblaApi: EmblaCarouselType) => {
-		tweenNodes.current = emblaApi
-			.slideNodes()
-			.map(slideNode => slideNode.querySelector(`.emblaSlide`) as HTMLElement)
+	const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
+		tweenNodes.current = emblaApi.slideNodes().map(slideNode => {
+			return slideNode.querySelector('.emblaSlide') as HTMLElement
+		})
 	}, [])
 
 	const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
-		tweenFactor.current = emblaApi.scrollSnapList().length
+		tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
 	}, [])
 
-	const tweenScale = useCallback((emblaApi: EmblaCarouselType) => {
-		if (!emblaApi) return
-		const engine = emblaApi.internalEngine()
-		const selectedSnap = emblaApi.selectedScrollSnap()
-		const slides = emblaApi.slideNodes()
+	const tweenScale = useCallback(
+		(emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+			const engine = emblaApi.internalEngine()
+			const scrollProgress = emblaApi.scrollProgress()
+			const selectedSnap = emblaApi.selectedScrollSnap()
+			const slidesInView = emblaApi.slidesInView()
+			const slides = emblaApi.slideNodes()
+			const isScrollEvent = eventName === 'scroll'
 
-		slides.forEach((slide, index) => {
-			let diffToTarget = index - selectedSnap
+			emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+				let diffToTarget = scrollSnap - scrollProgress
+				const slidesInSnap = engine.slideRegistry[snapIndex]
 
-			if (engine.options.loop) {
-				engine.slideLooper.loopPoints.forEach(loopItem => {
-					if (loopItem.index === index) {
-						const target = loopItem.target()
-						const sign = Math.sign(target)
+				slidesInSnap.forEach(slideIndex => {
+					if (isScrollEvent && !slidesInView.includes(slideIndex)) return
 
-						if (sign === -1) {
-							diffToTarget = index - (selectedSnap + slides.length)
-						} else if (sign === 1) {
-							diffToTarget = index - (selectedSnap - slides.length)
-						}
+					if (engine.options.loop) {
+						engine.slideLooper.loopPoints.forEach(loopItem => {
+							const target = loopItem.target()
+
+							if (slideIndex === loopItem.index && target !== 0) {
+								const sign = Math.sign(target)
+
+								if (sign === -1) {
+									diffToTarget = scrollSnap - (1 + scrollProgress)
+								}
+								if (sign === 1) {
+									diffToTarget = scrollSnap + (1 - scrollProgress)
+								}
+							}
+						})
 					}
-				})
-			}
 
-			const scaleFactor = 0.25
-			const scale = numberWithinRange(
-				1 - Math.pow(Math.abs(diffToTarget), 1.2) * scaleFactor,
-				0.8,
-				1
-			)
-			const isLoopTeleport = Math.abs(diffToTarget) > slides.length * 0.5
-			slide.style.transition = isLoopTeleport
-				? 'none'
-				: 'transform 1s ease-in-out'
-			slide.style.transform = `scale(${scale})`
-			slide.style.transformOrigin = 'center'
-		})
-	}, [])
+					const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current)
+					const scale = numberWithinRange(tweenValue, 0, 1).toString()
+					const tweenNode = tweenNodes.current[slideIndex]
+					console.log(tweenNode)
+
+					slides.forEach((slide, index) => {
+						let diffToTarget = index - selectedSnap
+
+						const scaleFactor = 0.25
+						const scale = numberWithinRange(
+							1 - Math.abs(diffToTarget) * scaleFactor,
+							0.8,
+							1
+						)
+
+						slide.style.transition = 'transform 0.5s ease'
+						slide.style.transform = `scale(${scale})`
+						slide.style.transformOrigin = 'center'
+					})
+
+					tweenNode.style.transition = 'transform 0.5s ease'
+					tweenNode.style.transform = `scale(${scale})`
+					tweenNode.style.transformOrigin = 'center'
+				})
+			})
+		},
+		[]
+	)
 
 	useEffect(() => {
 		if (!emblaApi) return
 
-		emblaApi.scrollTo(1)
-
+		setTweenNodes(emblaApi)
+		setTweenFactor(emblaApi)
 		tweenScale(emblaApi)
+
 		emblaApi
+			.on('reInit', setTweenNodes)
+			.on('reInit', setTweenFactor)
 			.on('reInit', tweenScale)
-			.on('select', tweenScale)
 			.on('scroll', tweenScale)
-	}, [emblaApi])
+			.on('slideFocus', tweenScale)
+	}, [emblaApi, tweenScale])
 
 	return (
 		<section className=''>
-			<div className='w-full duration-100'>
-				<div className='overflow-hidden duration-100' ref={emblaRef}>
-					<div className='flex duration-200'>
-						{reviews.map((review, index) => (
+			<div className='w-full'>
+				<div className='overflow-hidden' ref={emblaRef}>
+					<div className='flex'>
+						{reviews.map(review => (
 							<div
-								className='bg-black py-10 px-20 mx-5 text-white border border-solid flex-none basis-1/2 transition-transform duration-500 ease-in-out emblaSlide max-md:p-6 max-md:basis-9/12 max-md:'
+								className='flex flex-col justify-between bg-black py-10 px-20 mx-5 text-white border border-solid flex-none basis-1/2   max-md:p-6 max-md:basis-9/12 '
 								key={review.id}
 							>
-								<span className='text-6xl font-bold'>&ldquo;</span>
-								<h4 className='mb-5 text-xl max-md:text-xs'>{review.text}</h4>
-								<div className='flex items-center'>
+								<div>
+									<span className='text-6xl font-bold emblaSlide'>&ldquo;</span>
+									<h4 className='mb-5 text-xl max-md:text-xs'>{review.text}</h4>
+								</div>
+								<div className='flex items-center '>
 									<div className='flex justify-center items-center rounded-full overflow-hidden mr-4 max-md:size-10'>
 										<Image
-											src={user}
+											src={review.image}
 											loading='lazy'
-											alt='user'
+											alt={review.author}
+											width={64}
+											height={64}
 											className='size-16 object-cover'
 										/>
 									</div>
 									<div className='flex flex-col justify-between text-lg py-1 max-md:text-xs'>
-										<h3>{review.author}</h3>
-										<h3>{review.role}</h3>
+										{review.author}
 									</div>
 								</div>
 							</div>
 						))}
 					</div>
 				</div>
-				<div className='flex justify-center mt-5 '>
+				<div className='flex justify-center mt-5'>
 					<Button
 						onClick={onPrevButtonClick}
 						disabled={prevBtnDisabled}
@@ -127,11 +160,11 @@ const Review: FC = () => {
 						<FaArrowLeftLong />
 					</Button>
 					<Button
-						className='bg-white text-black shadow-none hover:bg-white p-0'
 						onClick={onNextButtonClick}
 						disabled={nextBtnDisabled}
+						className='bg-white text-black shadow-none hover:bg-white p-0'
 					>
-						<FaArrowRightLong className='' />
+						<FaArrowRightLong />
 					</Button>
 				</div>
 			</div>

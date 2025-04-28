@@ -27,7 +27,7 @@ const Title: FC<Props> = ({ title, id }) => {
 			viewport={{ once: true, amount: 0.2 }}
 			id={id}
 		>
-			<Container className='pt-40 pb-30 text-9xl font-bold uppercase max-md:text-4xl font-manrope max-md:py-10  '>
+			<Container className='pt-40 pb-30 text-9xl font-bold uppercase max-md:text-4xl font-manrope max-md:py-10 max-md:px-2 '>
 				{title.split('').map((letter, index) => (
 					<motion.span key={index} custom={index} variants={textVariants}>
 						{letter}

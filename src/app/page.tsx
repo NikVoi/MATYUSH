@@ -9,29 +9,23 @@ const Categories = dynamic(() => import('@/widgets/categories/ui/categories'), {
 	ssr: false,
 })
 const About = dynamic(() => import('@/widgets/about/about'), { ssr: false })
-const Contact = dynamic(() => import('@/widgets/contact/ui/contact'), {
-	ssr: false,
-})
 const Review = dynamic(() => import('@/widgets/Review/Review'), { ssr: false })
 
 export default function HomePage() {
 	return (
-		<main className='w-full relative'>
+		<main className='w-full relative '>
 			<Home />
 
-			<Title title='Работы' id='work' />
+			<Title title='Працы' id='work' />
 			<Bands />
 			<Categories />
 			<Bands />
 
-			<Title title='Отзывы' id='review' />
+			<Title title='Водгукі' id='review' />
 			<Review />
 
-			<Title title='О нас' id='about' />
+			<Title title='Пра нас' id='about' />
 			<About />
-
-			<Title title='Связаться с нами' id='contacts' />
-			<Contact />
 		</main>
 	)
 }
