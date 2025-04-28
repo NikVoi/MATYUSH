@@ -38,4 +38,4 @@ export const CATEGORIES = [
 	},
 ]
 
-export const TEXT_BUTTON = 'Посмтореть'
+export const TEXT_BUTTON = 'Паглядзець'
