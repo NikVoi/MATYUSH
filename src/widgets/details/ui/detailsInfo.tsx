@@ -18,7 +18,7 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 			transition={{ duration: 0.8, ease: 'easeOut' }}
 		>
 			<div>
-				<h2 className='text-4xl lg:text-9xl font-bold mb-4 font-bebas text-right'>
+				<h2 className='text-4xl lg:text-8xl font-bold mb-4 font-manrope text-right'>
 					{details.title}
 				</h2>
 

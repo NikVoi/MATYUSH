@@ -3,13 +3,14 @@ import bags_2 from '@/assets/details/bags/2.jpg'
 import bags_3 from '@/assets/details/bags/3.jpg'
 import bags_4 from '@/assets/details/bags/4.jpg'
 
-import barbie_1 from '@/assets/details/barbie/1.jpg'
-import barbie_2 from '@/assets/details/barbie/2.jpg'
-import barbie_3 from '@/assets/details/barbie/3.jpg'
-import barbie_4 from '@/assets/details/barbie/4.jpg'
-import barbie_5 from '@/assets/details/barbie/5.jpg'
-import barbie_6 from '@/assets/details/barbie/6.jpg'
-import barbie_7 from '@/assets/details/barbie/7.jpg'
+import barbie_1 from '@/assets/details/barbie/1.png'
+import barbie_2 from '@/assets/details/barbie/2.png'
+import barbie_3 from '@/assets/details/barbie/3.png'
+import barbie_4 from '@/assets/details/barbie/4.png'
+import barbie_5 from '@/assets/details/barbie/5.png'
+import barbie_6 from '@/assets/details/barbie/6.png'
+import barbie_7 from '@/assets/details/barbie/7.png'
+import barbie_8 from '@/assets/details/barbie/8.png'
 
 import hoodie_girl_1 from '@/assets/details/hoodie-girl/1.jpg'
 import hoodie_girl_10 from '@/assets/details/hoodie-girl/10.jpg'
@@ -55,13 +56,11 @@ export const CATEGORIES = [
 		specifications: {
 			color: 'Сіні',
 			material: 'Дэнім',
-			params: '95/65/95, рост 168',
 		},
 		images: [bags_1, bags_2, bags_3, bags_4],
 		details:
 			'Сумка выканана з дэніму і ланцугоў, яны выконваюць не толькі візуальную ролю, але і практычную. Дзякуючы ланцугам ручка не будзе расцягвацца. Магчымы варыянты розных колераў дэніму ',
-		fabric:
-			'Материал: 100% натуральная кожа. Прочная и износостойкая поверхность.',
+		fabric: 'Дэнім',
 		care: 'Сумка не прызначана для пранання ў пранальнай машыне. Дапушчальна ручное мыццё, кропкава, у месцах загразнення ',
 	},
 	{
@@ -95,23 +94,24 @@ export const CATEGORIES = [
 		id: '3',
 		title: 'Піжама Dark',
 		specifications: {
-			brand: 'Бренд С',
-			color: 'Голубой',
-			material: 'Хлопок',
+			color: 'Чорны. Па вашаму жаданню колер можна зрабіць іншым.',
+			material: 'Армані-шоўк',
+			params: '85/60/92, рост 168 і 95/65/95, рост 168',
 		},
 
 		images: [pajames_1, pajames_2, pajames_3, pajames_4, pajames_5, pajames_6],
 		details:
-			'Пижама из натурального хлопка обеспечивает максимальный комфорт и свободу движений во время сна.',
-		fabric: 'Материал: 100% хлопок. Мягкий, гипоаллергенный материал.',
-		care: 'Машинная стирка при 30°C. Гладить при средней температуре.',
+			'Піжам выканана з армані-шоўку. Тканіна харатэрызуецца мяккасьцю і амаль не мнецца. Піжаму можна выкарыстоўваць не толькі для сну, але і як лёгкі касцюм. Шыецца па індывідуальным меркам',
+		fabric: 'Армані-шоўк',
+		care: 'Ручное ці мыццё ў пранальнай машыне не больш за 30•С',
 	},
 	{
 		id: '4',
 		title: 'Касцюм Barbie',
 		specifications: {
-			color: 'Розовый',
-			material: 'Атлас',
+			color: 'Фуксія. Магчымыя і іншыя колеры па вашаму жаданню ',
+			material: 'Армані-шоўк',
+			params: '95/65/95, рост 168',
 		},
 		images: [
 			barbie_1,
@@ -121,18 +121,19 @@ export const CATEGORIES = [
 			barbie_5,
 			barbie_6,
 			barbie_7,
+			barbie_8,
 		],
 		details:
-			'Одежда из коллекции Барби сочетает в себе элегантность и игривость, идеально подходящая для особых случаев.',
-		fabric: 'Материал: 100% атлас. Лёгкий и блестящий материал.',
+			'Касюцюм выкананы з армані-шоўку. Складаецца з топа і штаноў свабоднага крою (можна набыць па аддзельнасьці) ',
+		fabric: 'Армані-шоўк',
 		care: 'Ручное ці мыццё ў пранальнай машыне не больш за 30•С',
 	},
 	{
 		id: '5',
 		title: 'Байка RS',
 		specifications: {
-			color: 'пяшчотна аліўкавы',
-			material: 'замаўляць байку на размер больш',
+			color: 'Пяшчотна аліўкавы',
+			material: 'Замаўляць байку на размер больш',
 			params: '91/81/100, рост 190 і 103/80/98, рост 181',
 		},
 		images: [

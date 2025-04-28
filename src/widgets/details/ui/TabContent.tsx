@@ -26,17 +26,24 @@ const TabContent = ({
 			return <div className='opacity-80'>{product.care}</div>
 
 		case 'specifications':
+			const { specifications } = product
 			return (
 				<div className='text-base space-y-2'>
-					<p>
-						<b>Колер:</b> {product.specifications?.color}
-					</p>
-					<p>
-						<b>Матэрыял:</b> {product.specifications?.material}
-					</p>
-					<p>
-						<b>Параметры на мадэлях: </b> {product.specifications?.params}
-					</p>
+					{specifications?.color && (
+						<p>
+							<b>Колер:</b> {specifications.color}
+						</p>
+					)}
+					{specifications?.material && (
+						<p>
+							<b>Матэрыял:</b> {specifications.material}
+						</p>
+					)}
+					{specifications?.params && (
+						<p>
+							<b>Параметры на мадэлях:</b> {specifications.params}
+						</p>
+					)}
 				</div>
 			)
 
