@@ -18,12 +18,12 @@ export const contactInfo = [
 
 export const socialLinks = [
 	{
-		href: 'https://t.me/matyush',
+		href: 'https://t.me/matyushbrand',
 		icon: <FaTelegramPlane />,
 		label: 'Telegram',
 	},
 	{
-		href: 'https://instagram.com/matyush',
+		href: 'https://www.instagram.com/matyush.krama?igsh=OTRvbDE3djZyNTVO',
 		icon: <FaInstagram />,
 		label: 'Instagram',
 	},
