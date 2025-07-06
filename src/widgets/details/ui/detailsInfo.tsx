@@ -27,7 +27,7 @@ const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
 				<ProductTabs product={details} />
 			</div>
 
-			<Link href={'https://instagram.com/matyush'} target='_blank'>
+			<Link href={'https://www.instagram.com/matyush.krama?igsh=OTRvbDE3djZyNTVO'} target='_blank'>
 				<Button
 					className={`bg-main w-full text-2xl lg:text-5xl py-4 lg:py-8 font-manrope font-bold cursor-pointer transition rounded-xl mb-24 `}
 				>
