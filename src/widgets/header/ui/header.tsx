@@ -7,6 +7,7 @@ import { useState } from "react";
 import { usePathname } from "@/i18n/navigation";
 import { headerVariants } from "@/shared/lib/motion-variants";
 import { Container } from "@/shared/ui/container";
+import { LocaleSwitcher } from "@/shared/ui/locale-switcher";
 import { ScrollProgress } from "@/shared/ui/scroll-progress";
 
 import { MATYUSH } from "@/shared/config/constant";
@@ -81,7 +82,7 @@ const Header = () => {
         <Nav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
         <div className="flex items-center gap-3 shrink-0">
-          {/* <LocaleSwitcher className="max-md:hidden" /> */}
+          <LocaleSwitcher className="max-md:hidden" />
           <BurgerButton
             menuOpen={menuOpen}
             toggleMenu={() => setMenuOpen((open) => !open)}
