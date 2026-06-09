@@ -1,41 +1,59 @@
-'use client'
+"use client";
 
-import { Button } from '@/shared/ui/button'
-import { motion } from 'framer-motion' // 👈 добавляем motion
-import Link from 'next/link'
-import { FC } from 'react'
-import { IDetailsInfoProps } from '../model/types'
-import { ProductTabs } from './TabContent'
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-const DetailsInfo: FC<IDetailsInfoProps> = ({ details }) => {
-	if (!details) return <p className='text-center text-xl'>Загрузка...</p>
+import { tapScaleSubtle } from "@/shared/lib/motion-variants";
+import { FC } from "react";
 
-	return (
-		<motion.section
-			className='w-full lg:w-[48%] flex flex-col justify-between'
-			initial={{ opacity: 0, y: 50 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.8, ease: 'easeOut' }}
-		>
-			<div>
-				<h2 className='text-4xl lg:text-8xl font-bold mb-4 font-manrope text-right'>
-					{details.title}
-				</h2>
+import { Button } from "@/shared/ui/button";
+import type { ProductDetailsProps } from "../model/types";
+import { ProductTabs } from "./product-tabs";
 
-				<hr className='mb-8' />
+const DetailsInfo: FC<ProductDetailsProps> = ({ product }) => {
+  const t = useTranslations("product");
 
-				<ProductTabs product={details} />
-			</div>
+  if (!product) {
+    return <p className="text-center text-xl">{t("loading")}</p>;
+  }
 
-			<Link href={'https://www.instagram.com/matyush.krama?igsh=OTRvbDE3djZyNTVO'} target='_blank'>
-				<Button
-					className={`bg-main w-full text-2xl lg:text-5xl py-4 lg:py-8 font-manrope font-bold cursor-pointer transition rounded-xl mb-24 `}
-				>
-					Замовіць
-				</Button>
-			</Link>
-		</motion.section>
-	)
-}
+  return (
+    <motion.section
+      className="flex w-full flex-col max-sm:gap-0 lg:w-[42%] lg:min-h-[min(75vh,640px)]"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <div className="flex flex-1 flex-col">
+        <p className="mb-2 text-right text-sm font-medium uppercase tracking-widest text-main max-sm:text-left">
+          {t("brand")}
+        </p>
+        <h1 className="font-archivo text-right text-3xl font-normal leading-[1.05] tracking-tight text-black max-sm:text-left sm:text-5xl lg:text-6xl">
+          {product.title}
+        </h1>
+        <p className="font-body mt-3 text-right text-base font-medium leading-relaxed tracking-wide text-neutral-500 max-sm:text-left md:text-lg">
+          {product.tagline}
+        </p>
+        <ProductTabs product={product} />
+      </div>
 
-export default DetailsInfo
+      <div className="sticky bottom-0 z-10 mt-8 shrink-0 border-t border-neutral-100 bg-white/95 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] backdrop-blur-sm max-sm:-mx-4 max-sm:px-4 sm:pt-5 lg:static lg:mx-0 lg:mt-auto lg:bg-white lg:pb-2 lg:pt-6">
+        <div className="flex justify-center sm:justify-end lg:px-0">
+          <motion.a
+            href="https://www.instagram.com/matyush.krama?igsh=OTRvbDE3djZyNTVO"
+            target="_blank"
+            rel="noopener noreferrer"
+            {...tapScaleSubtle}
+            className="inline-block w-full max-w-xs sm:w-auto"
+          >
+            <Button className="bg-main h-12 w-full rounded-xl px-8 text-base font-semibold text-white shadow-sm hover:bg-main/90 sm:min-w-[200px] sm:text-lg sm:h-14">
+              {t("order")}
+            </Button>
+          </motion.a>
+        </div>
+      </div>
+    </motion.section>
+  );
+};
+
+export default DetailsInfo;

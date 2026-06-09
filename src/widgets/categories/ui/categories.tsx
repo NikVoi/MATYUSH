@@ -1,92 +1,81 @@
-'use client'
+"use client";
 
-import { Button } from '@/shared/ui/button'
-import Container from '@/shared/ui/container'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { useLocale, useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
-import { useRouter } from 'next/navigation'
-import { CATEGORIES, TEXT_BUTTON } from '../model/moc-data'
+import { getProductCatalog, getProductGridClasses } from "@/entities/product";
+import { Link } from "@/i18n/navigation";
+import { fadeIn, slideUp } from "@/shared/lib/motion-variants";
+import { Container } from "@/shared/ui/container";
+import { cn } from "@/shared/lib/utils";
 
-const fadeIn = {
-	hidden: { opacity: 0 },
-	visible: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
-}
-
-const slideUp = (delay = 0) => ({
-	hidden: { opacity: 0, y: 60 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.8, ease: 'easeOut', delay },
-	},
-})
+const cardTitleClass =
+  "font-archivo text-balance text-[1.625rem] font-normal leading-[1.15] tracking-tight sm:text-[1.75rem] lg:text-[2rem]";
 
 const Categories = () => {
-	const router = useRouter()
+  const locale = useLocale();
+  const t = useTranslations("categories");
+  const catalog = getProductCatalog(locale);
 
-	return (
-		<motion.section
-			className={`w-full my-12 max-md:px-2  `}
-			initial='hidden'
-			whileInView='visible'
-			viewport={{ once: true, amount: 0.3 }}
-			variants={fadeIn}
-		>
-			<Container className='grid grid-rows-3 grid-cols-3 gap-3 max-lg:grid-cols-2  max-md:grid-cols-1 max-md:grid-rows-6'>
-				{CATEGORIES.map(category => {
-					let rowSpanClass = ''
-					let colStartClass = ''
+  return (
+    <motion.section
+      className="my-12 w-full"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeIn}
+    >
+      <Container className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:auto-rows-[minmax(250px,auto)]">
+        {catalog.map((product, index) => {
+          const { rowSpanClass, colStartClass } = getProductGridClasses(
+            product.gridLayout,
+          );
 
-					if (category.id === 4)
-						rowSpanClass = 'row-span-2 h-full max-md:row-span-1'
-					if (category.id === 5)
-						rowSpanClass = 'row-span-2 h-full  max-md:row-span-1'
-					if (category.id % 2 === 0 && category.id !== 6)
-						rowSpanClass =
-							'row-span-2 h-full max-lg:row-span-2 max-md:row-span-1'
-					if (category.id === 6) colStartClass = 'col-start-2'
+          return (
+            <motion.div
+              key={product.id}
+              className={cn(
+                "group relative flex h-[300px] flex-col items-center justify-end overflow-hidden rounded-2xl pb-8 text-center text-white max-sm:h-[min(88vw,340px)] max-sm:pb-6 sm:h-[280px] sm:justify-center sm:pb-0",
+                rowSpanClass,
+                colStartClass,
+              )}
+              variants={slideUp(index * 0.1)}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.995 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
+            >
+              <Link
+                href={`/category/${product.slug}`}
+                prefetch
+                className="absolute inset-0 z-20"
+                aria-label={`${product.title} — ${t("view")}`}
+              />
+              <Image
+                src={product.previewImage}
+                loading="lazy"
+                quality={75}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover grayscale transition duration-300 group-hover:scale-105 group-hover:grayscale-0"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent sm:from-black/50" />
+              <div className="pointer-events-none relative z-10 flex max-w-[90%] flex-col items-center gap-3 px-3">
+                <h3 className={cardTitleClass}>{product.title}</h3>
+                <p className="line-clamp-2 text-sm font-normal leading-snug text-white/85">
+                  {product.tagline}
+                </p>
+                <span className="mt-1 inline-flex rounded-full bg-main px-6 py-2 text-sm font-semibold text-white opacity-100 sm:opacity-0 sm:transition-opacity sm:duration-300 sm:group-hover:opacity-100">
+                  {t("view")}
+                </span>
+              </div>
+            </motion.div>
+          );
+        })}
+      </Container>
+    </motion.section>
+  );
+};
 
-					const containerClass = `
-						relative flex flex-col justify-center items-center 
-						w-full rounded-2xl overflow-hidden text-white h-[250px] 
-						text-center group cursor-pointer transition-all duration-300 
-						${rowSpanClass} ${colStartClass}
-						max-md:!row-span-1 max-md:!col-start-auto max-md:h-[300px]
-					`
-
-					return (
-						<motion.div
-							key={category.id}
-							className={`${containerClass} ${rowSpanClass} ${colStartClass}`}
-							variants={slideUp(category.id * 0.15)}
-							onClick={() => router.push(`/category/${category.id}`)}
-						>
-							<div className=''>
-								<Image
-									src={category.img}
-									loading='lazy'
-									quality={80}
-									alt={category.title}
-									placeholder='blur'
-									className={`absolute top-0 left-0 w-full h-full object-cover grayscale transition -z-10 group-hover:grayscale-0 group-hover:scale-110 group-hover:duration-300 `}
-								/>
-							</div>
-							<div className=''>
-								<h3 className='opacity-100 duration-500 text-4xl font-bold font-manrope mb-4'>
-									{category.title}
-								</h3>
-
-								<Button className='group-hover:opacity-100 opacity-0 duration-500  rounded-full px-10 font-bold max-md:opacity-100'>
-									{TEXT_BUTTON}
-								</Button>
-							</div>
-						</motion.div>
-					)
-				})}
-			</Container>
-		</motion.section>
-	)
-}
-
-export default Categories
+export default Categories;

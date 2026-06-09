@@ -1,101 +1,97 @@
-'use client'
+"use client";
 
-import { LINKS } from '@/shared/config/constant'
-import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
-import { useEffect } from 'react'
+import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useEffect } from "react";
+
+import { Link } from "@/i18n/navigation";
+import { navItemVariants } from "@/shared/lib/motion-variants";
+import { navLinkClassName } from "@/shared/lib/nav-link";
+import { LocaleSwitcher } from "@/shared/ui/locale-switcher";
 
 interface NavProps {
-	menuOpen: boolean
-	setMenuOpen: (open: boolean) => void
+  menuOpen: boolean;
+  setMenuOpen: (open: boolean) => void;
 }
 
-const navItemVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: (i: number) => ({
-		opacity: 1,
-		y: 0,
-		transition: { delay: 0.1 * i, duration: 0.4, ease: 'easeOut' },
-	}),
-}
+const NAV_ITEMS = [
+  { key: "work" as const, hash: "work" },
+  { key: "reviews" as const, hash: "review" },
+  { key: "about" as const, hash: "about" },
+];
 
 const Nav = ({ menuOpen, setMenuOpen }: NavProps) => {
-	useEffect(() => {
-		const handleResize = () => {
-			if (window.innerWidth >= 768) {
-				setMenuOpen(false)
-			}
-		}
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [setMenuOpen])
+  const t = useTranslations("nav");
 
-	const handleLinkClick = () => {
-		setMenuOpen(false)
-	}
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setMenuOpen]);
 
-	return (
-		<>
-			<nav
-				className='hidden md:flex flex-1 px-20 items-center space-x-6 text-xl'
-				role='navigation'
-				aria-label='Main navigation'
-			>
-				<ul className='flex md:flex-row gap-5'>
-					{LINKS.map((item, index) => (
-						<motion.li
-							key={item.link}
-							custom={index}
-							variants={navItemVariants}
-							initial='hidden'
-							animate='visible'
-						>
-							<Link
-								href={`/#${item.link.toLowerCase()}`}
-								className='relative transition-all duration-300 after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'
-							>
-								{item.text}
-							</Link>
-						</motion.li>
-					))}
-				</ul>
-			</nav>
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
 
-			<AnimatePresence>
-				{menuOpen && (
-					<motion.nav
-						className='fixed top-15 left-0 w-full h-[calc(100vh-60px)] bg-white z-40 flex flex-col items-center justify-center space-y-10 text-2xl shadow-lg md:hidden'
-						role='navigation'
-						aria-label='Mobile navigation'
-						initial={{ opacity: 0, scale: 0.95 }}
-						animate={{ opacity: 1, scale: 1 }}
-						exit={{ opacity: 0, scale: 0.95 }}
-						transition={{ duration: 0.4, ease: 'easeOut' }}
-					>
-						<ul className='flex flex-col items-center space-y-8'>
-							{LINKS.map((item, index) => (
-								<motion.li
-									key={item.link}
-									custom={index}
-									variants={navItemVariants}
-									initial='hidden'
-									animate='visible'
-								>
-									<Link
-										href={`/#${item.link.toLowerCase()}`}
-										className='relative transition-all duration-300 after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full'
-										onClick={handleLinkClick}
-									>
-										{item.text}
-									</Link>
-								</motion.li>
-							))}
-						</ul>
-					</motion.nav>
-				)}
-			</AnimatePresence>
-		</>
-	)
-}
+  const renderLinks = (onClick?: () => void) =>
+    NAV_ITEMS.map((item, index) => (
+      <motion.li
+        key={item.hash}
+        custom={index}
+        variants={navItemVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div
+          whileHover={{ y: -2 }}
+          whileTap={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        >
+          <Link
+            href={`/#${item.hash}`}
+            className={navLinkClassName}
+            onClick={onClick}
+          >
+            {t(item.key)}
+          </Link>
+        </motion.div>
+      </motion.li>
+    ));
 
-export default Nav
+  return (
+    <>
+      <nav
+        className="hidden md:flex flex-1 px-20 items-center space-x-6 text-xl"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <ul className="flex md:flex-row gap-5">{renderLinks()}</ul>
+      </nav>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            className="fixed top-[calc(3.25rem+env(safe-area-inset-top,0px))] left-0 z-40 flex h-[calc(100dvh-3.25rem-env(safe-area-inset-top,0px))] w-full flex-col items-center justify-center space-y-10 bg-white text-xl shadow-lg max-sm:text-lg md:hidden"
+            role="navigation"
+            aria-label="Mobile navigation"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <ul className="flex flex-col items-center space-y-8">
+              {renderLinks(handleLinkClick)}
+            </ul>
+            <LocaleSwitcher className="mt-4 md:hidden" />
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default Nav;

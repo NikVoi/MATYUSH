@@ -1,41 +1,51 @@
-'use client'
+"use client";
 
-import '@/app/globals.css'
-import { motion } from 'framer-motion'
-import { FC } from 'react'
-import Container from './container'
+import { titleLetterVariants } from "@/shared/lib/motion-variants";
+import { useReducedMotion } from "@/shared/lib/use-reduced-motion";
+import { motion } from "framer-motion";
+import { FC } from "react";
+
+import { Container } from "./container";
 
 interface Props {
-	title: string
-	id: string
+  title: string;
+  id: string;
 }
+
+const titleClassName =
+  "font-archivo pt-20 pb-12 text-5xl font-normal uppercase leading-none tracking-tight max-sm:px-2 sm:pt-32 sm:pb-20 sm:text-7xl lg:pt-40 lg:pb-24 lg:text-8xl";
 
 const Title: FC<Props> = ({ title, id }) => {
-	const textVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: (i: number) => ({
-			opacity: 1,
-			y: 0,
-			transition: { delay: i * 0.05, ease: 'easeOut', duration: 0.6 },
-		}),
-	}
+  const reducedMotion = useReducedMotion();
 
-	return (
-		<motion.h2
-			initial='hidden'
-			whileInView='visible'
-			viewport={{ once: true, amount: 0.2 }}
-			id={id}
-		>
-			<Container className='pt-40 pb-30 text-9xl font-bold uppercase max-md:text-4xl font-manrope max-md:py-10 max-md:px-2 '>
-				{title.split('').map((letter, index) => (
-					<motion.span key={index} custom={index} variants={textVariants}>
-						{letter}
-					</motion.span>
-				))}
-			</Container>
-		</motion.h2>
-	)
-}
+  if (reducedMotion) {
+    return (
+      <h2 id={id}>
+        <Container className={titleClassName}>{title}</Container>
+      </h2>
+    );
+  }
 
-export default Title
+  return (
+    <motion.h2
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      id={id}
+    >
+      <Container className={titleClassName}>
+        {title.split("").map((letter, index) => (
+          <motion.span
+            key={index}
+            custom={index}
+            variants={titleLetterVariants}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </Container>
+    </motion.h2>
+  );
+};
+
+export default Title;
